@@ -1,15 +1,45 @@
 * {
-    margin: 0px;
-    padding: 0px;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
 }
 
-ul, ol {
-    list-style: none;
+@media (min-width: 1800px) {
+  .visual {
+    background-color: red;
+    height: 500px;
+  }
+}
+@media (min-width: 1500px) and (max-width: 1799px) {
+  .visual {
+    background-color: blue;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1499px) {
+  .visual {
+    background-color: bisque;
+  }
+}
+@media (min-width: 960px) and (max-width: 1023px) {
+  .visual {
+    background-color: brown;
+  }
+}
+@media (min-width: 720px) and (max-width: 959px) {
+  .visual {
+    background-color: darkblue;
+  }
+}
+@media (min-width: 535px) and (max-width: 719px) {
+  .visual {
+    background-color: darksalmon;
+  }
+}
+@media (min-width: 335px) and (max-width: 534px) {
+  .visual {
+    background-color: darksalmon;
+  }
 }
 
-a {
-    text-decoration: none
-}
-
-.main_header {
-}
+/*# sourceMappingURL=style.css.map */

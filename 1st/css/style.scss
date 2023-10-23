@@ -10,9 +10,12 @@
 }
 
 
+
 // 데스크탑
 @include desktop {
 	.visual {
+        background-color: red;
+        height: 500px;
     }
     
     .section {
@@ -26,6 +29,7 @@
 // 노트북에서 데스크탑
 @include desktopToLaptop {
 	.visual {
+        background-color: blue;
     }
     
     .section {
@@ -39,6 +43,7 @@
 // 노트북
 @include laptop {
 	.visual {
+        background-color: bisque;
     }
     
     .section {
@@ -52,6 +57,7 @@
 // 태블릿에서 노트북
 @include laptopToTablet {
 	.visual {
+        background-color: brown;
     }
     
     .section {
@@ -65,6 +71,7 @@
 // 태블릿
 @include tablet {
 	.visual {
+        background-color: darkblue;
     }
     
     .section {
@@ -78,6 +85,7 @@
 // 모바일에서 태블릿
 @include tabletToMobile  {
 	.visual {
+        background-color: darksalmon;
     }
     
     .section {
@@ -90,7 +98,8 @@
 
 // 모바일
 @include mobile  {
-.visual {
+    .visual {
+        background-color: darksalmon;
     }
     
     .section {
