@@ -1,4 +1,8 @@
-1. node.js 다운로드
+1. node.js 안정화버전 다운로드
+2. sysdm.cpl 실행
+3. 시스템 변수
+> 변수 이름 NODE_HOME
+> 값 C:\Program Files\nodejs
 2. node -v 
 3. npm -v
 4. npm install -g sass
@@ -13,7 +17,7 @@ E 드라이브 이동
 3. cd scss 있는 폴더경로
 scss 있는 폴더 이동
 
-4. npx sass --watch style.scss style.css
+4. npx sass -w style.scss style.css
 style.css.map 생성
 Sass is watching for changes. Press Ctrl-C to stop.
 문구 떠야 적용되는 중
