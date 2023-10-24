@@ -78,8 +78,58 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>list</title>
 	<link rel="stylesheet" href="/miniboard/src/css/common.css">
+	<link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
 </head>
 <body>
-
+	<div class="container">
+		<table class="center_table">
+			<colgroup>
+				<col width= 10%> 
+				<col width= 20%>
+				<col width= 30%>
+				<col width= 10%>
+				<col width= 10%>
+				<col width= 10%>
+			</colgroup>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>내용</th>
+					<th>작성일</th>
+					<th>수정일</th>
+					<th>삭제일</th>
+				</tr>				
+        	</thead>
+			<tbody>
+				<?php
+					foreach($result as $item) {
+				?>
+				<tr>
+					<td><?php echo $item["id"]; ?></td>
+					<td>
+						<a href="/mini_test/src/detail_test.php?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num; ?>">
+						<?php echo $item["title"]; ?>
+						</a>
+					</td>
+					<td>
+						<?php echo $item["content"]; ?>
+					</td>
+					<td>
+						<?php echo $item["create_at"]; ?>
+					</td>
+					<td>
+						<?php echo $item["update_at"]; ?>
+					</td>
+					<td>
+						<?php echo $item["delete_at"]; ?>
+					</td>
+				</tr>
+				<?php	
+				} 
+				?>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>

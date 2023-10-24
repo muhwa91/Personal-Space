@@ -1,101 +1,29 @@
 // < _mixin(나눈 픽셀로 미디어쿼리 만들기)파일 불러오기 >
 @import "./mixin";
 
-// < 브라우저 크기조절 하면서 background color 확인하기 >
 * {
     padding: 0;
     margin: 0;
     text-decoration: none;
     list-style: none;
+    font-family: 'Orbit', sans-serif;
+    box-sizing: border-box;
 }
 
-
-// 데스크탑
-@include desktop {
-	.visual {
-    }
-    
-    .section {
-    }
-    
-    .footer {
-    }
+a {
+    text-decoration: none
 }
 
-
-// 노트북에서 데스크탑
-@include desktopToLaptop {
-	.visual {
-    }
-    
-    .section {
-    }
-    
-    .footer {
-    }
+.container {
+    width: 100%;
+    height: 100%;    
 }
 
-
-// 노트북
-@include laptop {
-	.visual {
-    }
-    
-    .section {
-    }
-    
-    .footer {
-    }
-}
-
-
-// 태블릿에서 노트북
-@include laptopToTablet {
-	.visual {
-    }
-    
-    .section {
-    }
-    
-    .footer {
-    }
-}
-
-
-// 태블릿
-@include tablet {
-	.visual {
-    }
-    
-    .section {
-    }
-    
-    .footer {
-    }
-}
-
-
-// 모바일에서 태블릿
-@include tabletToMobile  {
-	.visual {
-    }
-    
-    .section {
-    }
-    
-    .footer {
-    }
-}
-
-
-// 모바일
-@include mobile  {
-.visual {
-    }
-    
-    .section {
-    }
-    
-    .footer {
-    }
+.center_table {
+    width: 50%;
+    height: 400px;
+    margin: 0 auto;
+    background-image: url(/miniboard/doc/img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }

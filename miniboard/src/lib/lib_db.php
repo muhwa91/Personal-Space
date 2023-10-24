@@ -59,6 +59,8 @@ function db_select_boards_paging(&$conn, &$arr_param) {
 			." id "
 			." title "
 			." create_at "
+			." update_at "
+			." delete_at "
 			." FROM "
 			." boards "
 			." WHERE "
