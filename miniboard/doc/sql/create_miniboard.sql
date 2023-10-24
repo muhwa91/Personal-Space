@@ -1,0 +1,15 @@
+CREATE DATABASE miniboard;
+
+USE miniboard;
+
+CREATE TABLE boards(
+	id INT PRIMARY KEY AUTO_INCREMENT
+	,title VARCHAR(100) NOT NULL
+	,content VARCHAR(1000) NOT NULL
+	,create_at DATETIME NOT NULL DEFAULT
+	,update_at DATETIME DEFAULT NULL
+	,delete_at DATETIME DEFAULT NULL
+	,delete_flg CHAR(1) NOT NULL DEFAULT '0'
+);
+
+commit;
