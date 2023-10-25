@@ -1,5 +1,5 @@
 <?php
-	define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/miniboard/src/"); // 웹서버root
+	define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/src/"); // 웹서버root
 	define("ERROR_MSG_PARAM", "%s을 입력해 주세요."); // 파라미터 에러 메세지 // 제목, 내용
 	require_once(ROOT."lib/lib_db.php");// DB관련 라이브러리
 
@@ -113,6 +113,14 @@
 	<title>update</title>
 </head>
 <body>
-	
+	<div class="container">
+		<form action="03_update.php" method="post">		
+			<input type="hidden" name="id" value="<?php echo $id ?>">
+			<input type="hidden" name="page" value="<?php echo $page ?>">
+			
+
+			
+		</form>
+	</div>
 </body>
 </html>

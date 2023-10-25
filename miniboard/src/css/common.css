@@ -1,58 +1,101 @@
+/* 공통부분 */
+
 * {
   padding: 0;
-  margin: 0;
+  margin: 0;  
+  /* min-height: 100%; */
   text-decoration: none;
   list-style: none;
   font-family: "Orbit", sans-serif;
-  box-sizing: border-box;
+  box-sizing: border-box;     
+}
+
+body {
+  background-color: #E0CCB3;
 }
 
 a {
-  text-decoration: none;
+  color: rgb(23, 69, 156);
+}
+
+td {
+  background-color: rgba(180, 180, 180, 0.5);
+  text-overflow: ellipsis;
+}
+
+.text_align {
+  text-align: center;
 }
 
 /* list */
 
-.container {
-  width: 100%;
-  height: 900px;
+.container {  
+  width: 100vw;
+  height: 800px; 
+  background-image: url(/doc/img/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
 }
 
 .list_table {
-  width: 1200px;
-  height: 800px;
-  margin: 100px auto;
-  background-image: url(/doc/img/bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  width: 60%;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .list_table_head {
-  height: 100px;
-  font-size: 2.5rem;
-}
+  height: 200px;
+  font-size: 3.5rem;
+}  
 
 .list_table_body {
-  text-align: center;
-  font-size: 1.4rem;
+  height: 100%; 
+  color: rgb(23, 69, 156);
+  font-size: 2rem;
+  font-weight: bolder;  
 }
+
+.list_table_body tr {
+  height: 100px;
+}
+
+.insert_btn_0 {
+  float: right;
+  margin-bottom: 500px;
+  margin-right: 500px;
+}
+.insert_btn_1 {
+  width: 100px;
+  height: 50px;
+  font-size: 1.5rem;
+  background-color: rgba(180, 180, 180, 0.5);
+  border: transparent;
+}
+
+/* 페이징 */
+
+.container_0 {  
+  font-size: 1.5rem;
+}
+
+
+
+
+/* insert */
+
+/* .insert_btn {
+  
+} */
 
 /* detail */
 
-.detail_table {
-  width: 1200px;
-  height: 800px;
-  margin: 100px auto;
-  background-image: url(/doc/img/bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-.detail_table_head {
-  height: 100px;
-  font-size: 2.5rem;
+.button {
+  width: 100px;
+  height: 50px;
+  font-size: 1.5rem;
+  background-color: rgba(180, 180, 180, 0.5);
+  border: transparent;
 }
 
 

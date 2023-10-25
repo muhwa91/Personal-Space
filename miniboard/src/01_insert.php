@@ -63,6 +63,6 @@
 	<link rel="stylesheet" href="/miniboard/src/css/common.css">	
 </head>
 <body>
-
+	
 </body>
 </html>

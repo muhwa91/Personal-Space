@@ -84,10 +84,10 @@
 	<div class="container">
 		<table class="list_table">
 			<colgroup>
-				<col width= 10%> 
-				<col width= 30%>
-				<col width= 40%>
-				<col width= 20%>
+				<col width="10%"> 
+				<col width="20%">
+				<col width="50%">
+				<col width="20%">
 			</colgroup>
 			<thead class="list_table_head">
 				<tr>
@@ -97,13 +97,15 @@
 					<th>작성일</th>
 				</tr>				
         	</thead>
-			<tbody class="list_table_body">
+			<tbody class="list_table_body text_align">
 				<?php
 					foreach($result as $item) {
 				?>
 				<tr>
 					<td>
+						<a href="02_detail.php?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num; ?>">
 						<?php echo $item["id"]; ?>
+						</a>
 					</td>
 					<td>
 						<a href="02_detail.php?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num; ?>">
@@ -111,7 +113,9 @@
 						</a>
 					</td>						
 					<td>
+						<a href="02_detail.php?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num; ?>">
 						<?php echo $item["content"]; ?>
+						</a>
 					</td>
 					<td>
 						<?php echo $item["create_at"]; ?>
@@ -122,6 +126,29 @@
 				?>
 			</tbody>
 		</table>
+		<br>
+		<div class="container_0 text_align">
+			<a class="right_page_num hovor_bgc" href="01_list.php/?page=<?php echo $prev_page_num; ?>"><<</a>
+			<?php
+				$block_num=(int)ceil($page_num/5);
+				$block_first_num=(5*$block_num)-4;
+				$present_num=$block_first_num-1;
+				for($i = $block_first_num; $i <= $block_num*5; $i++) {
+					$present_num+=1;					
+					if ($i > $max_page_num) {
+						break;
+					}
+					$str = $page_num === $present_num ? "bgc_black" : "hovor_bgc";					
+			?>	
+				<a class="right_page_num <?php echo $str; ?>" href="01_list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+			<?php
+				}
+			?>
+			<a class="right_page_num hovor_bgc" href="01_list.php/?page=<?php echo $next_page_num; ?>">>></a>
+		</div>
+		<div class="insert_btn_0">
+			<button class="insert_btn_1" onclick="location.href='01_insert.php'";>작 성</button>
+		</div>
 	</div>
 </body>
 </html>
