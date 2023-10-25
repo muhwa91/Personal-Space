@@ -1,6 +1,6 @@
 <?php
-	define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/miniboard/src/"); // 웹서버root
-	require_once(ROOT."lib/lib_db.php");// DB관련 라이브러리
+	define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/src/"); // 웹서버root
+	require_once(ROOT."lib/lib_db.php"); // DB관련 라이브러리
 
 	$conn = null; // DB Connection 변수
 	$id = ""; // id 세팅
@@ -25,7 +25,7 @@
 		$arr_param = [
 			"id" => $id
 		];
-		$result = db_select_board_id($conn, $arr_param);
+		$result = db_select_boards_id($conn, $arr_param);
 
 		// 게시글 조회 예외처리
 		if($result === false ) {
@@ -47,9 +47,37 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>detail</title>
-	<link rel="stylesheet" href="/miniboard/src/css/common.css">	
+	<link rel="stylesheet" href="../src/css/common.css">	
+	<link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
 </head>
 <body>
-	
+<div class="container">
+		<table class="detail_table">
+			<colgroup>
+				<col width= 10%> 
+				<col width= 20%>
+				<col width= 45%>
+				<col width= 15%>
+			</colgroup>
+			<thead class="detail_table_head">
+				<?php
+					foreach($result as $item) {
+				?>
+				<tr>
+					<th>번호</th>
+					<td><?php echo $item["id"]; ?></td>
+					<th>제목</th>
+					<td><?php echo $item["title"]; ?></td>
+					<th>내용</th>
+					<td><?php echo $item["content"]; ?></td>
+					<th>작성일</th>
+					<td><?php echo $item["create_at"]; ?></td>
+				</tr>
+				<?php	
+				} 
+				?>				
+        	</thead>			
+		</table>
+	</div>
 </body>
 </html>

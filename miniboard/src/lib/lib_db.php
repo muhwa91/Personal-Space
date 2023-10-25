@@ -57,10 +57,11 @@ function db_select_boards_paging(&$conn, &$arr_param) {
 		$sql = 
 			" SELECT "
 			." id "
-			." title "
-			." create_at "
-			." update_at "
-			." delete_at "
+			." ,title "
+			." ,content "
+			." ,create_at "
+			." ,update_at "
+			." ,delete_at "
 			." FROM "
 			." boards "
 			." WHERE "
@@ -100,7 +101,7 @@ function db_select_boards_cnt(&$conn) {
 			." FROM "
 			." 		boards "
 			." WHERE "
-			." 		delete_flag = '0' "
+			." 		delete_flg = '0' "
 		;
 
 		$stmt = $conn->query($sql);
@@ -158,15 +159,15 @@ function db_select_boards_id(&$conn, &$arr_param) {
 		$sql = 
 			" SELECT "
 			."		id "
-			."		title "
-			."		content "
-			."		create_at "
+			."		,title "
+			."		,content "
+			."		,create_at "
 			." FROM "
 			." 		boards "
 			." WHERE "
 			."		id = :id "
 			." 		AND "
-			." 		delete_flag = '0' "
+			." 		delete_flg = '0' "
 		;
 
 		$arr_ps = [
