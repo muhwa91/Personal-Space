@@ -52,14 +52,14 @@
 </head>
 <body>
 	<div class="container">
-		<table	able class="list_table">
+		<table class="mini_table">
 			<colgroup>
 				<col width="10%"> 
 				<col width="20%">
 				<col width="50%">
 				<col width="20%">
 			</colgroup>
-			<thead class="list_table_head">
+			<thead class="mini_table_head">
 				<tr>
 					<th>번호</th>
 					<th>제목</th>
@@ -67,7 +67,7 @@
 					<th>작성일</th>
 				</tr>				
         	</thead>
-			<tbody class="list_table_body text_align">
+			<tbody class="mini_table_body text_align">
 				<?php
 					foreach($result as $item) {
 				?>
@@ -92,9 +92,9 @@
 		</table>
 		<br>
 		<div class="container_2 text_align">
-			<button class="button text_align" onclick="location.href='03_update.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">수 정</button>
-			<button class="button text_align" onclick="location.href='00_list.php/?page=<?php echo $page; ?>'";>취 소</button>
-			<button class="button text_align" onclick="location.href='04_delete.php/?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">삭 제</button>
+			<button class="button text_align" onclick="location.href='03_update.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">수 정</button>
+			<button class="button text_align" onclick="location.href='00_list.php?page=<?php echo $page; ?>'";>취 소</button>
+			<button class="button text_align" onclick="location.href='04_delete.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">삭 제</button>
 		</div>    
 	</div>
 </body>

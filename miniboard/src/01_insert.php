@@ -60,9 +60,48 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>insert</title>
-	<link rel="stylesheet" href="/miniboard/src/css/common.css">	
+	<link rel="stylesheet" href="../src/css/common.css">
+	<link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">	
 </head>
 <body>
-	
+	<div class="container">		
+		<table class="mini_table">
+			<colgroup>
+				<col width="40%">
+				<col width="60%">
+			</colgroup>
+			<thead class="mini_table_head">
+				<tr>
+					<th>제목</th>
+					<th>내용</th>
+				</tr>				
+			</thead>
+		<form action="01_insert.php" method="post">			
+			<tbody class="mini_table_body1">
+					<tr>
+						<td>
+							<label for="title"></label>
+							<input type="text" class="ins_textarea" name="title" id="title" value="<?php echo $title; ?>"
+							maxlength="20" placeholder="제목을 작성해주세요." spellcheck="false">
+							<!-- $title = ""; 로 선언해두었고, $title = ""; 출력하여 입력 기본 값으로 설정 -->
+							<!-- value 설정해주면 post 파라미터에 저장됨 -->
+						</td>
+						<td>
+							<label for="content"></label>
+							<textarea class="ins_textarea" name="content" id="content" cols="25" rows="10"
+							placeholder="내용을 작성해주세요." spellcheck="false"><?php echo $content; ?></textarea>
+							<!-- $content = ""; 로 선언해두었고, $content = ""; 출력하여 입력 기본 값으로 설정 -->
+						</td>
+					</tr>				
+			</tbody>
+		</table>
+			<br>
+			<div class="container_2 text_align">
+				<button class="button text_align" type="submit">작 성</button>
+				<button class="button text_align" type="button" onclick="location.href='00_list.php?page=1'">취 소</button>
+				<button class="button text_align" type="reset">초기화</button>
+			</div>
+		</form>  		
+	</div>
 </body>
 </html>

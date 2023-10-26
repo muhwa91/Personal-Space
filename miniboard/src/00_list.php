@@ -82,14 +82,14 @@
 </head>
 <body>
 	<div class="container">
-		<table class="list_table">
+		<table class="mini_table">
 			<colgroup>
 				<col width="10%"> 
 				<col width="20%">
 				<col width="50%">
 				<col width="20%">
 			</colgroup>
-			<thead class="list_table_head">
+			<thead class="mini_table_head">
 				<tr>
 					<th>번호</th>
 					<th>제목</th>
@@ -97,7 +97,7 @@
 					<th>작성일</th>
 				</tr>				
         	</thead>
-			<tbody class="list_table_body text_align">
+			<tbody class="mini_table_body text_align">
 				<?php
 					foreach($result as $item) {
 				?>
@@ -140,11 +140,11 @@
 					}
 					$str = $page_num === $present_num ? "bgc_black" : "hovor_bgc";					
 			?>	
-				<a class="right_page_num <?php echo $str; ?>" href="01_list.php/?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+				<a class="right_page_num <?php echo $str; ?>" href="01_list.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
 			<?php
 				}
 			?>
-			<a class="right_page_num hovor_bgc" href="01_list.php/?page=<?php echo $next_page_num; ?>">>></a>
+			<a class="right_page_num hovor_bgc" href="01_list.php?page=<?php echo $next_page_num; ?>">>></a>
 		</div>
 		<div class="insert_btn_0">
 			<button class="insert_btn_1" onclick="location.href='01_insert.php'";>작 성</button>

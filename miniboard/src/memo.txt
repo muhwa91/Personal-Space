@@ -1,0 +1,5 @@
+1. list : 페이징 처리, 페이지 호버
+2. insert : 작성 DB Error : Insert Boards
+3. detail : 수정, 삭제 x
+4. delete : 자바스크립트 삭제or취소 팝업창으로 처리하여 삭제페이지 생성 안하는게 가능한지
+            또는 try catch문 2개로 해서 detail 삭제가 바로 가능하게 하여 삭제페이지 생성 안하는게 가능한지
