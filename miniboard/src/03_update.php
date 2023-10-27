@@ -8,12 +8,7 @@
 	$arr_err_msg = []; // 에러메세지 저장용 변수(배열) 설정
 	$title = ""; // 제목 세팅
 	$content = ""; // 내용 세팅
-	// $tit_stay= $item["title"];
-	// $con_stay= $item["content"];
-	// $tit_stay= $_POST["title"];
-	// $con_stay= $_POST["content"];	
-	// var_dump($item);	
-
+	
 	try {
 		if(!db_conn($conn)) { // DB 연결
 			throw new Exception("DB Error : PDO Instance");
@@ -98,6 +93,7 @@
 			throw new Exception("DB Error : PDO Select_id Count, ".count($result));
 		}
 		// 오류 부분
+		$item = $result[0];
 		if($http_method === "GET"){ // GET으로 처음 고유의 값 tit랑 con을 받아온다
 			$tit_stay= $item["title"];
 			$con_stay= $item["content"];
@@ -105,9 +101,10 @@
 			$tit_stay= $_POST["title"];
 			$con_stay= $_POST["content"];
 		}
+		
 		// 오류 부분
 	} catch(Exception $e) {
-		if($http_method === "POST") {
+		if(!$http_method === "POST") {
 			$conn->rollBack();
 		}		
 		// try문에서 예외 발생 시 catch문 실행, 메소드가 POST일 때는 트랜잭션으로 롤백
@@ -124,6 +121,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>update</title>
+	<link rel="stylesheet" href="../src/css/common.css">
+	<link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="container">		
@@ -143,20 +142,25 @@
 				</tr>					
 			</thead>
 		<form action="03_update.php" method="post">			
-			<tbody class="mini_table_body1">
+			<tbody class="mini_table_body text_align">
 					<tr>
 						<td>
+							<?php echo $item["id"]; ?>
+						</td>						
+						<td>
 							<label for="title"></label>
-							<input type="text" class="ins_textarea" name="title" id="title" value="<?php echo $tit_stay; ?>"
-							maxlength="20" placeholder="제목을 작성해주세요." spellcheck="false">
+							<input class="ins_textarea text_align" name="title" id="title" value="<?php echo $tit_stay; ?>" maxlength="20" spellcheck="false"></input>
 							<!-- $title = ""; 로 선언해두었고, $title = ""; 출력하여 입력 기본 값으로 설정 -->
 							<!-- value 설정해주면 post 파라미터에 저장됨 -->
 						</td>
 						<td>
 							<label for="content"></label>
-							<textarea class="ins_textarea" name="content" id="content" cols="25" rows="10"
-							placeholder="내용을 작성해주세요." spellcheck="false"><?php echo $con_stay; ?></textarea>
+							<textarea class="ins_textarea text_align" name="content" id="content" cols="40" rows="10"
+							spellcheck="false"><?php echo $con_stay; ?></textarea>
 							<!-- $content = ""; 로 선언해두었고, $content = ""; 출력하여 입력 기본 값으로 설정 -->
+						</td>
+						<td>
+							<?php echo $item["update_at"]; ?>
 						</td>
 					</tr>				
 			</tbody>

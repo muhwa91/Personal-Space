@@ -81,8 +81,8 @@
 					<tr>
 						<td>
 							<label for="title"></label>
-							<input type="text" class="ins_textarea" name="title" id="title" value="<?php echo $title; ?>"
-							maxlength="20" placeholder="제목을 작성해주세요." spellcheck="false">
+							<textarea class="ins_textarea" name="title" id="title" value="<?php echo $title; ?>"
+							maxlength="20" placeholder="제목을 작성해주세요." spellcheck="false"></textarea>
 							<!-- $title = ""; 로 선언해두었고, $title = ""; 출력하여 입력 기본 값으로 설정 -->
 							<!-- value 설정해주면 post 파라미터에 저장됨 -->
 						</td>

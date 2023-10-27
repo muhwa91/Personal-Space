@@ -128,7 +128,7 @@
 		</table>
 		<br>
 		<div class="container_0 text_align">
-			<a class="right_page_num hovor_bgc" href="01_list.php/?page=<?php echo $prev_page_num; ?>"><<</a>
+			<a class="right_page_num hovor_bgc" href="00_list.php/?page=<?php echo $prev_page_num; ?>"><<</a>
 			<?php
 				$block_num=(int)ceil($page_num/5);
 				$block_first_num=(5*$block_num)-4;
@@ -140,11 +140,11 @@
 					}
 					$str = $page_num === $present_num ? "bgc_black" : "hovor_bgc";					
 			?>	
-				<a class="right_page_num <?php echo $str; ?>" href="01_list.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+				<a class="right_page_num <?php echo $str; ?>" href="00_list.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
 			<?php
 				}
 			?>
-			<a class="right_page_num hovor_bgc" href="01_list.php?page=<?php echo $next_page_num; ?>">>></a>
+			<a class="right_page_num hovor_bgc" href="00_list.php?page=<?php echo $next_page_num; ?>">>></a>
 		</div>
 		<div class="insert_btn_0">
 			<button class="insert_btn_1" onclick="location.href='01_insert.php'";>작 성</button>

@@ -47,7 +47,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>detail</title>
-	<link rel="stylesheet" href="../src/css/common.css">	
+	<link rel="stylesheet" href="../src/css/common.css">
 	<link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
 </head>
 <body>
