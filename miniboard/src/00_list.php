@@ -1,5 +1,6 @@
 <?php
 	define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/src/"); // 웹서버root
+	define("FILE_HEADER", ROOT."header.php"); // 헤더 패스
 	require_once(ROOT."lib/lib_db.php"); // DB관련 라이브러리
 
 	$conn = null; // DB Connection 변수
@@ -81,72 +82,71 @@
 	<link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div class="container">
-		<table class="mini_table">
-			<colgroup>
-				<col width="10%"> 
-				<col width="20%">
-				<col width="50%">
-				<col width="20%">
-			</colgroup>
-			<thead class="mini_table_head">
-				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>내용</th>
-					<th>작성일</th>
-				</tr>				
-        	</thead>
-			<tbody class="mini_table_body text_align">
+	<?php
+		require_once(FILE_HEADER);
+	?>
+	<main>		
+		<div class="main_layout">
+			<table class="board_table">
+				<colgroup>
+					<col width="10%"> 
+					<col width="20%">
+					<col width="50%">
+					<col width="20%">
+				</colgroup>
+				<thead class="board_table_head">
+					<tr>
+						<th class="head_th_2">번호</th>
+						<th class="head_th_2">제목</th>
+						<th class="head_th_2">내용</th>
+						<th class="head_th_2">작성일</th>
+					</tr>				
+				</thead>
+				<tbody class="board_table_body">
+					<?php
+						foreach($result as $item) {
+					?>
+					<tr onclick="location.href='02_detail.php?id=<?php echo $item['id']; ?>&page=<?php echo $page_num; ?>'">
+						<td class="body_td_2">							
+							<?php echo $item["id"]; ?>							
+						</td>
+						<td class="body_td_2">
+							<?php echo $item["title"]; ?>							
+						</td class="body_td_2">						
+						<td class="body_td_2">							
+							<?php echo $item["content"]; ?>							
+						</td>
+						<td class="body_td_1">
+							<?php echo $item["create_at"]; ?>
+						</td>
+					</tr>
+					<?php	
+					} 
+					?>
+				</tbody>
+			</table>
+			<br><br><br><br><br><br>				
+			<div class="paging_layout">
+				<a class="right_page_num hovor_bgc" href="00_list.php?page=<?php echo $prev_page_num; ?>"><<</a>
 				<?php
-					foreach($result as $item) {
-				?>
-				<tr>
-					<td>
-						<a href="02_detail.php?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num; ?>">
-						<?php echo $item["id"]; ?>
-						</a>
-					</td>
-					<td class="text_reduce">
-						<a href="02_detail.php?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num; ?>">
-						<?php echo $item["title"]; ?>
-						</a>
-					</td>						
-					<td class="text_reduce">
-						<a href="02_detail.php?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num; ?>">
-						<?php echo $item["content"]; ?>
-						</a>
-					</td>
-					<td>
-						<?php echo $item["create_at"]; ?>
-					</td>
-				</tr>
-				<?php	
-				} 
-				?>
-			</tbody>
-		</table>
-		<br>
-		<div class="container_0 text_align">
-			<a class="right_page_num hovor_bgc" href="00_list.php?page=<?php echo $prev_page_num; ?>"><<</a>
-			<?php
-				$block_num=(int)ceil($page_num/5);
-				$block_first_num=(5*$block_num)-4;
-				$present_num=$block_first_num-1;
-				for($i = $block_first_num; $i <= $block_num*5; $i++) {
-					$present_num+=1;					
-					if ($i > $max_page_num) {
-						break;
+					$block_num=(int)ceil($page_num/5);
+					$block_first_num=(5*$block_num)-4;
+					$present_num=$block_first_num-1;
+					for($i = $block_first_num; $i <= $block_num*5; $i++) {
+						$present_num+=1;					
+						if ($i > $max_page_num) {
+							break;
+						}
+						$str = $page_num === $present_num ? "bgc_black" : "hovor_bgc";					
+				?>	
+					<a class="right_page_num <?php echo $str; ?>" href="00_list.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+				<?php
 					}
-					$str = $page_num === $present_num ? "bgc_black" : "hovor_bgc";					
-			?>	
-				<a class="right_page_num <?php echo $str; ?>" href="00_list.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
-			<?php
-				}
-			?>
-			<a class="right_page_num hovor_bgc" href="00_list.php?page=<?php echo $next_page_num; ?>">>></a>			
+				?>
+				<a class="right_page_num hovor_bgc" href="00_list.php?page=<?php echo $next_page_num; ?>">>></a>			
+				<button class="insert_btn" onclick="location.href='01_insert.php'";>작 성</button>		
+			</div>
 		</div>
-		<button class="insert_btn" onclick="location.href='01_insert.php'";>작 성</button>		
-	</div>	
+	</main>
 </body>
 </html>

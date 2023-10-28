@@ -1,4 +1,4 @@
-const DELETE = document.querySelector('.button_1');
+const DELETE = document.getElementsByClassName('.button_1');
 DELETE.addEventListener('click', popOpen1);
 
 function popOpen1() {
