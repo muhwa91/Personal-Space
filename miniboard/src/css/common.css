@@ -19,17 +19,22 @@ a {
 
 td {
   background-color: rgba(180, 180, 180, 0.5);
+  word-wrap: break-word;
 }
 
 .text_align {
   text-align: center;
 }
 
+
+/* ------ */
 /* list */
+/* ------ */
+
 
 .container {  
   width: 100vw;
-  height: 800px; 
+  height: 90vh; 
   background-image: url(/doc/img/bg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -37,7 +42,8 @@ td {
 }
 
 .mini_table {
-  width: 60%;
+  width: 70%;
+  height: 100%;
   margin: 0 auto;
   table-layout: fixed;
   position: relative;
@@ -71,6 +77,15 @@ td {
 	text-overflow: ellipsis;
 }
 
+/* 페이징 */
+
+.container_0 {
+  font-size: 1.5rem;
+  position: absolute;
+  left: 45%;
+  bottom: 35px;
+}
+
 .insert_btn {
   width: 100px;
   height: 50px;
@@ -78,16 +93,9 @@ td {
   background-color: rgba(180, 180, 180, 0.5);
   border: transparent;
   position: absolute;
-  right: 450px;
-}
-
-/* 페이징 */
-
-.container_0 {
-  font-size: 1.5rem;
-  position: absolute;
-  left: 45%;
-  bottom: 170px;
+  right: 260px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 
@@ -121,7 +129,7 @@ td {
 
 
 .mini_table_1 {
-  width: 60%;
+  width: 70%;
   height: 100%;
   margin: 0 auto;
   table-layout: fixed;
@@ -133,6 +141,8 @@ td {
   font-size: 1.5rem;
   background-color: rgba(180, 180, 180, 0.5);
   border: transparent;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 
@@ -152,13 +162,6 @@ td {
 /* ------ */
 
 
-.button_1 {
-  width: 100px;
-  height: 50px;
-  font-size: 1.5rem;
-  background-color: rgba(180, 180, 180, 0.5);
-  border: transparent;
-}
 
 
 /*# sourceMappingURL=common.css.map */

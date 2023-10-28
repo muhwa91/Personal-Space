@@ -70,7 +70,6 @@
 					"id" => $id
 					,"title" => $title
 					,"content" => $content 
-					,"update_at" => $update_at
 				];
 				// $_POST 제출 값 $arr_param에 저장
 			
