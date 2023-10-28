@@ -78,7 +78,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>list</title>
-	<link rel="stylesheet" href="../src/css/common.css">
+	<link rel="stylesheet" href="./css/common.css">
 	<link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -96,10 +96,10 @@
 				</colgroup>
 				<thead class="board_table_head">
 					<tr>
-						<th class="head_th_2">번호</th>
-						<th class="head_th_2">제목</th>
-						<th class="head_th_2">내용</th>
-						<th class="head_th_2">작성일</th>
+						<th class="head_th_1">번호</th>
+						<th class="head_th_1">제목</th>
+						<th class="head_th_1">내용</th>
+						<th class="head_th_1">작성일</th>
 					</tr>				
 				</thead>
 				<tbody class="board_table_body">
@@ -111,12 +111,12 @@
 							<?php echo $item["id"]; ?>							
 						</td>
 						<td class="body_td_2">
-							<?php echo $item["title"]; ?>							
-						</td class="body_td_2">						
+							<div><?php echo $item["title"]; ?></div>						
+						</td>						
 						<td class="body_td_2">							
-							<?php echo $item["content"]; ?>							
+							<div><?php echo $item["content"]; ?></div>						
 						</td>
-						<td class="body_td_1">
+						<td class="body_td_2">
 							<?php echo $item["create_at"]; ?>
 						</td>
 					</tr>
@@ -144,7 +144,7 @@
 					}
 				?>
 				<a class="right_page_num hovor_bgc" href="00_list.php?page=<?php echo $next_page_num; ?>">>></a>			
-				<button class="insert_btn" onclick="location.href='01_insert.php'";>작 성</button>		
+				<button class="btn" onclick="location.href='01_insert.php'";>작 성</button>		
 			</div>
 		</div>
 	</main>

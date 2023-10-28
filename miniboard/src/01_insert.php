@@ -1,5 +1,6 @@
 <?php
 	define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/src/"); // 웹서버root
+	define("FILE_HEADER", ROOT."header.php"); // 헤더 패스
 	define("ERROR_MSG_PARAM", "%s을 입력해 주세요."); // 파라미터 에러 메세지 // 제목, 내용
 	require_once(ROOT."lib/lib_db.php");// DB관련 라이브러리
 
@@ -60,48 +61,53 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>insert</title>
-	<link rel="stylesheet" href="../src/css/common.css">
+	<link rel="stylesheet" href="./css/common.css">
 	<link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">	
 </head>
 <body>
-	<div class="container">		
-		<table class="mini_table_1">
-			<colgroup>
-				<col width="40%">
-				<col width="60%">
-			</colgroup>
-			<thead class="mini_table_head">
-				<tr>
-					<th>제목</th>
-					<th>내용</th>
-				</tr>				
-			</thead>
-		<form action="01_insert.php" method="post">			
-			<tbody class="mini_table_body1">
+	<?php
+		require_once(FILE_HEADER);
+	?>
+	<main>
+		<div class="main_layout">		
+			<table class="board_table">
+				<colgroup>
+					<col width="35%">
+					<col width="60%">
+				</colgroup>
+				<thead class="board_table_head">
 					<tr>
-						<td>
-							<label for="title"></label>
-							<textarea class="ins_textarea" name="title" id="title" value="<?php echo $title; ?>"
-							maxlength="20" placeholder="제목을 작성해주세요." spellcheck="false"></textarea>
-							<!-- $title = ""; 로 선언해두었고, $title = ""; 출력하여 입력 기본 값으로 설정 -->
-							<!-- value 설정해주면 post 파라미터에 저장됨 -->
-						</td>
-						<td>
-							<label for="content"></label>
-							<textarea class="ins_textarea" name="content" id="content" cols="25" rows="10"
-							placeholder="내용을 작성해주세요." spellcheck="false"><?php echo $content; ?></textarea>
-							<!-- $content = ""; 로 선언해두었고, $content = ""; 출력하여 입력 기본 값으로 설정 -->
-						</td>
+						<th class="head_th_2">제목</th>
+						<th class="head_th_2">내용</th>
 					</tr>				
-			</tbody>
-		</table>
-			<br>
-			<div class="container_2 text_align">
-				<button class="button text_align" type="submit">작 성</button>
-				<button class="button text_align" type="button" onclick="location.href='00_list.php?page=1'">취 소</button>
-				<button class="button text_align" type="reset">초기화</button>
-			</div>
-		</form>  		
-	</div>
+				</thead>
+			<form action="01_insert.php" method="post">			
+				<tbody class="board_table_body">
+						<tr>
+							<td>
+								<label for="title"></label>
+								<textarea class="ins_textarea_1" name="title" id="title" value="<?php echo $title; ?>"
+								maxlength="20" placeholder="제목을 작성해주세요." spellcheck="false"></textarea>
+								<!-- $title = ""; 로 선언해두었고, $title = ""; 출력하여 입력 기본 값으로 설정 -->
+								<!-- value 설정해주면 post 파라미터에 저장됨 -->
+							</td>
+							<td>
+								<label for="content"></label>
+								<textarea class="ins_textarea_2" name="content" id="content" cols="25" rows="10"
+								maxlength="100" placeholder="내용을 작성해주세요." spellcheck="false"><?php echo $content; ?></textarea>
+								<!-- $content = ""; 로 선언해두었고, $content = ""; 출력하여 입력 기본 값으로 설정 -->
+							</td>
+						</tr>				
+				</tbody>
+			</table>
+				<br><br><br><br><br><br>
+				<div class="paging_layout">
+					<button class="btn" type="reset">초기화</button>
+					<button class="btn" type="button" onclick="location.href='00_list.php?page=1'">취 소</button>
+					<button class="btn" type="submit">작 성</button>
+				</div>
+			</form>  		
+		</div>
+	</main>
 </body>
 </html>

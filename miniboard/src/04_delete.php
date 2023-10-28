@@ -1,5 +1,6 @@
 <?php
 	define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/src/"); // 웹서버root
+	define("FILE_HEADER", ROOT."header.php"); // 헤더 패스
 	require_once(ROOT."lib/lib_db.php");// DB관련 라이브러리
 
 	$conn = null;
@@ -86,59 +87,63 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>delete</title>
-	<link rel="stylesheet" href="../src/css/common.css">
+	<link rel="stylesheet" href="./css/common.css">
 	<link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-		<table class="mini_table_1">
-			<colgroup>
-				<col width="10%"> 
-				<col width="20%">
-				<col width="50%">
-				<col width="20%">
-			</colgroup>
-			<thead class="mini_table_head">
-				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>내용</th>
-					<th>작성일</th>
-				</tr>				
-        	</thead>
-			<tbody class="mini_table_body text_align">
-				<?php
-					foreach($result as $item) {
-				?>
-				<tr>
-					<td>
-						<?php echo $item["id"]; ?>
-					</td>
-					<td>
-						<?php echo $item["title"]; ?>
-					</td>						
-					<td>
-						<?php echo $item["content"]; ?>
-					</td>
-					<td>
-						<?php echo $item["create_at"]; ?>
-					</td>
-				</tr>
-				<?php	
-				} 
-				?>
-			</tbody>
-		</table>
-		<br>
+	<?php
+		require_once(FILE_HEADER);
+	?>
+	<main>		
+		<div class="main_layout">
+			<table class="board_table">
+				<colgroup>
+					<col width="10%"> 
+					<col width="20%">
+					<col width="50%">
+					<col width="20%">
+				</colgroup>
+				<thead class="board_table_head">
+					<tr>
+						<th class="head_th_1">번호</th>
+						<th class="head_th_1">제목</th>
+						<th class="head_th_1">내용</th>
+						<th class="head_th_1">작성일</th>
+					</tr>				
+				</thead>
+				<tbody class="board_table_body">
+					<?php
+						foreach($result as $item) {
+					?>
+					<tr>
+						<td class="body_td_1">
+							<?php echo $item["id"]; ?>
+						</td>
+						<td class="body_td_1">
+							<?php echo $item["title"]; ?>
+						</td>						
+						<td class="body_td_1">
+							<?php echo $item["content"]; ?>
+						</td>
+						<td class="body_td_1">
+							<?php echo $item["create_at"]; ?>
+						</td>
+					</tr>
+					<?php	
+					} 
+					?>
+				</tbody>
+			</table>
+			<br><br><br><br><br><br>
 		<form action="04_delete.php" method="post">
-			<div class="container_2 text_align">
+			<div class="paging_layout">
 				<input type="hidden" name="id" value="<?php echo $id; ?>">
-				<button class="button_1 text_align" type="submit">삭 제</button>
-				<button class="button text_align" type="button" onclick="location.href='02_detail.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">취 소</button>
+				<button class="btn" type="button" onclick="location.href='02_detail.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">취 소</button>
+				<button class="delete_btn" type="submit">삭 제</button>
 			</div> 
 		</form>  
 	</div>
 
-	<script src="../src/css/style.js"></script>
+	<script src="./css/style.js"></script>
 </body>
 </html>

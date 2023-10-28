@@ -1,5 +1,6 @@
 <?php
 	define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/src/"); // 웹서버root
+	define("FILE_HEADER", ROOT."header.php"); // 헤더 패스
 	define("ERROR_MSG_PARAM", "%s을 입력해 주세요."); // 파라미터 에러 메세지 // 제목, 내용
 	require_once(ROOT."lib/lib_db.php");// DB관련 라이브러리
 
@@ -124,56 +125,60 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>update</title>
-	<link rel="stylesheet" href="../src/css/common.css">
+	<link rel="stylesheet" href="./css/common.css">
 	<link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
 </head>
 <body>
-	<div class="container">		
-		<form class="update_form" action="03_update.php" method="post">			
-			<table class="mini_table_1">
-				<input type="hidden" name="id" value="<?php echo $id ?>">
-				<input type="hidden" name="page" value="<?php echo $page ?>">
-				<colgroup>
-					<col width="10%"> 
-					<col width="20%">
-					<col width="50%">
-					<col width="20%">
-				</colgroup>
-				<thead class="mini_table_head">
-					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>내용</th>
-						<th>수정일</th>
-					</tr>					
-				</thead>
-				<tbody class="mini_table_body text_align">
+	<?php
+		require_once(FILE_HEADER);
+	?>
+	<main>		
+		<div class="main_layout">	
+			<form class="update_form" action="03_update.php" method="post">			
+				<table class="board_table">
+					<input type="hidden" name="id" value="<?php echo $id ?>">
+					<input type="hidden" name="page" value="<?php echo $page ?>">
+					<colgroup>
+						<col width="10%"> 
+						<col width="20%">
+						<col width="50%">
+						<col width="20%">
+					</colgroup>
+					<thead class="board_table_head">
 						<tr>
-							<td>
-								<?php echo $item["id"]; ?>
-							</td>						
-							<td>
-								<label for="title"></label>
-								<input class="ins_textarea text_align" name="title" id="title" value="<?php echo $tit_stay; ?>" maxlength="20" spellcheck="false"></input>
-								<!-- $title = ""; 로 선언해두었고, $title = ""; 출력하여 입력 기본 값으로 설정 -->
-								<!-- value 설정해주면 post 파라미터에 저장됨 -->
-							</td>
-							<td>
-								<label for="content"></label>
-								<textarea class="ins_textarea" name="content" id="content" cols="40" rows="10"
-								spellcheck="false"><?php echo $con_stay; ?></textarea>
-								<!-- $content = ""; 로 선언해두었고, $content = ""; 출력하여 입력 기본 값으로 설정 -->
-							</td>
-							<td>
-								<?php echo $item["update_at"]; ?>
-							</td>
-						</tr>				
-				</tbody>
-			</table>
-				<br>
-			<div class="container_2 text_align">
-				<button class="button text_align" type="submit">수 정</button>
-				<button class="button text_align" type="button" onclick="location.href='02_detail.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">취 소</button>
+							<th class="head_th_1">번호</th>
+							<th class="head_th_1">제목</th>
+							<th class="head_th_1">내용</th>
+							<th class="head_th_1">수정일</th>
+						</tr>					
+					</thead>
+					<tbody class="board_table_body">
+							<tr>
+								<td class="body_td_1">
+									<?php echo $item["id"]; ?>
+								</td>						
+								<td>
+									<label for="title"></label>
+									<input class="up_textarea_1" name="title" id="title" value="<?php echo $tit_stay; ?>" maxlength="20" spellcheck="false">
+									<!-- $title = ""; 로 선언해두었고, $title = ""; 출력하여 입력 기본 값으로 설정 -->
+									<!-- value 설정해주면 post 파라미터에 저장됨 -->
+								</td>
+								<td>
+									<label for="content"></label>
+									<textarea class="up_textarea_2" name="content" id="content" cols="40" rows="5"
+									spellcheck="false"><?php echo $con_stay; ?></textarea>
+									<!-- $content = ""; 로 선언해두었고, $content = ""; 출력하여 입력 기본 값으로 설정 -->
+								</td>
+								<td class="body_td_1">
+									<?php echo $item["update_at"]; ?>
+								</td>
+							</tr>				
+					</tbody>
+				</table>
+				<br><br><br><br><br><br>
+			<div class="paging_layout">
+				<button class="btn" type="button" onclick="location.href='02_detail.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">취 소</button>
+				<button class="btn" type="submit">수 정</button>
 			</div>
 		</form>  		
 	</div>

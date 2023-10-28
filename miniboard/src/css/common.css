@@ -1,10 +1,12 @@
+/* ------------ */
+/* ----공통부분---- */
+/* ------------ */
 html, body {
   padding: 0;
   margin: 0;
   list-style: none;
   font-family: "Orbit", sans-serif;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 header {
@@ -24,27 +26,41 @@ center {
   text-align: center;
 }
 
-.cursor_point {
-  cursor: pointer;
+a {
+  text-decoration: none;
+  color: #000;
 }
+
+/* ------------ */
+/* ----list---- */
+/* ------------ */
 
 .main_layout {
   margin: 0 auto;
   width: 1600px;
   height: 800px;
-  /* position: relative; */
-  background: url(/miniboard/doc/img/ggobugi.png);
-  /* background-size: contain;
+  position: relative;
+  background-image: url(/doc/img/ggobugi.png);
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; */
+         
 }
 
 .board_table {
   margin: 0px auto;
-  width: 1490px;
-  height: 70%;
+  width: 1350px;
+  height: 560px;
   border: none;
+  table-layout: fixed;  
+     
+}
+
+.board_table_body {
+  width: 940px;
+  height: 560px;
+  
+            
 }
 
 .head_th_1 {
@@ -57,7 +73,7 @@ center {
 .head_th_2 {
   font-size: 3rem;
   font-weight: bolder;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.1);
 }
 
@@ -66,7 +82,7 @@ center {
   font-weight: bold;
   color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.1);
-  text-align: center;
+  text-align: center;   
 }
 
 .body_td_2 {
@@ -75,6 +91,11 @@ center {
   color: rgb(255, 255, 255);
   background-color: rgba(0, 0, 0, 0.1);
   text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
 }
 
 .paging_layout {
@@ -93,13 +114,98 @@ center {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-.insert_btn {
+.btn {
   width: 100px;
   height: 40px;
+  margin: 0px 20px;
   border: none;
   border-radius: 10%;
   background-color: rgba(255, 255, 255, 0.5);
   float: right;
 }
+
+/* ------------ */
+/* ----insert---- */
+/* ------------ */
+
+.ins_textarea_1 {
+  width: 490px;
+  height: 560px;
+  margin: 0 auto;
+  font-family: "Orbit", sans-serif;
+  font-size: 30px;
+  border: none;
+  resize: none;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.ins_textarea_2 {
+  width: 805px;
+  height: 560px;
+  margin: 0 auto;
+  font-family: "Orbit", sans-serif;
+  font-size: 30px;
+  border: none;
+  resize: none;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+textarea:focus {
+  outline: none;
+}
+
+/* ------------ */
+/* ----detail---- */
+/* ------------ */
+
+.body_td_3 {
+  height: 560px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.1);
+  text-align: center;
+  /* white-space: nowrap; */
+  word-break: break-all;
+  overflow-y: scroll; 
+}
+
+.up_textarea_1 {
+  width: 270px;
+  height: 100%;
+  margin: 0;
+  font-family: "Orbit", sans-serif;
+  font-size: 30px;
+  border: none;
+  resize: none;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.up_textarea_2 {
+  width: 675px;
+  height: 100%;
+  margin: 0 auto;
+  font-family: "Orbit", sans-serif;
+  font-size: 30px;
+  border: none;
+  resize: none;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ------------ */
+/* ----delete---- */
+/* ------------ */
+
+.delete_btn {
+  width: 100px;
+  height: 40px;
+  margin: 0px 20px;
+  border: none;
+  border-radius: 10%;
+  background-color: rgba(255, 255, 255, 0.5);
+  float: right;
+}
+
+
 
 /*# sourceMappingURL=common.css.map */
