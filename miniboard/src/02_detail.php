@@ -52,7 +52,7 @@
 </head>
 <body>
 	<div class="container">
-		<table class="mini_table">
+		<table class="mini_table_1">
 			<colgroup>
 				<col width="10%"> 
 				<col width="20%">

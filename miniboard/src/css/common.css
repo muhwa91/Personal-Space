@@ -19,7 +19,6 @@ a {
 
 td {
   background-color: rgba(180, 180, 180, 0.5);
-  text-overflow: ellipsis;
 }
 
 .text_align {
@@ -39,8 +38,9 @@ td {
 
 .mini_table {
   width: 60%;
-  height: 100%;
   margin: 0 auto;
+  table-layout: fixed;
+  position: relative;
 }
 
 .mini_table_head {
@@ -49,10 +49,12 @@ td {
 }  
 
 .mini_table_body {
-  height: 100%; 
+  width: 100%;
+  height: 100%;
   color: rgb(23, 69, 156);
   font-size: 2rem;
-  font-weight: bolder;  
+  font-weight: bolder;
+    
 }
 
 .mini_table_body tr {
@@ -60,32 +62,39 @@ td {
 }
 
 .mini_table_body td {
-  height: 100%;
+  height: 120px;
 }
 
-
-.insert_btn_0 {
-  float: right;
-  margin-right: 500px;
+.text_reduce {
+  overflow:hidden;
+	white-space : nowrap;
+	text-overflow: ellipsis;
 }
-.insert_btn_1 {
+
+.insert_btn {
   width: 100px;
   height: 50px;
   font-size: 1.5rem;
   background-color: rgba(180, 180, 180, 0.5);
   border: transparent;
+  position: absolute;
+  right: 450px;
 }
 
 /* 페이징 */
 
-.container_0 {  
+.container_0 {
   font-size: 1.5rem;
+  position: absolute;
+  left: 45%;
+  bottom: 170px;
 }
 
 
-
-
+/* ------ */
 /* insert */
+/* ------ */
+
 
 .mini_table_body1 tr{
   height: 150px;
@@ -105,16 +114,18 @@ td {
   border: none;
 }
 
+
 /* ------ */
 /* detail */
 /* ------ */
 
 
-
-
-
-
-
+.mini_table_1 {
+  width: 60%;
+  height: 100%;
+  margin: 0 auto;
+  table-layout: fixed;
+}
 
 .button {
   width: 100px;
@@ -124,12 +135,30 @@ td {
   border: transparent;
 }
 
+
 /* ------ */
 /* update */
 /* ------ */
 
 
+.update_form {
+  width: 100%;
+  height: 100%;
+}
 
+
+/* ------ */
+/* delete */
+/* ------ */
+
+
+.button_1 {
+  width: 100px;
+  height: 50px;
+  font-size: 1.5rem;
+  background-color: rgba(180, 180, 180, 0.5);
+  border: transparent;
+}
 
 
 /*# sourceMappingURL=common.css.map */

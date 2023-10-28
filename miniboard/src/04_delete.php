@@ -1,5 +1,5 @@
 <?php
-	define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/miniboard/src/"); // 웹서버root
+	define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/src/"); // 웹서버root
 	require_once(ROOT."lib/lib_db.php");// DB관련 라이브러리
 
 	$conn = null;
@@ -63,7 +63,7 @@
 				throw new Exception("DB Error : Delete Boards id");
 			}
 			$conn->commit();
-			header("Location: 01_list.php");
+			header("Location: 00_list.php");
 			exit;	
 		}
 	} catch(Exception $e) {
@@ -86,8 +86,59 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>delete</title>
+	<link rel="stylesheet" href="../src/css/common.css">
+	<link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
 </head>
 <body>
-	
+<div class="container">
+		<table class="mini_table_1">
+			<colgroup>
+				<col width="10%"> 
+				<col width="20%">
+				<col width="50%">
+				<col width="20%">
+			</colgroup>
+			<thead class="mini_table_head">
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>내용</th>
+					<th>작성일</th>
+				</tr>				
+        	</thead>
+			<tbody class="mini_table_body text_align">
+				<?php
+					foreach($result as $item) {
+				?>
+				<tr>
+					<td>
+						<?php echo $item["id"]; ?>
+					</td>
+					<td>
+						<?php echo $item["title"]; ?>
+					</td>						
+					<td>
+						<?php echo $item["content"]; ?>
+					</td>
+					<td>
+						<?php echo $item["create_at"]; ?>
+					</td>
+				</tr>
+				<?php	
+				} 
+				?>
+			</tbody>
+		</table>
+		<br>
+		<form action="04_delete.php" method="post">
+			<div class="container_2 text_align">
+				<input type="hidden" name="id" value="<?php echo $id; ?>">
+				<button class="button_1 text_align" type="submit">삭 제</button>
+				<button class="button text_align" type="button" onclick="location.href='02_detail.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">취 소</button>
+			</div> 
+		</form>  
+	</div>
+
+	<script src="../src/css/style.js"></script>
 </body>
 </html>

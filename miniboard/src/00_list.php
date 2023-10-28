@@ -107,12 +107,12 @@
 						<?php echo $item["id"]; ?>
 						</a>
 					</td>
-					<td>
+					<td class="text_reduce">
 						<a href="02_detail.php?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num; ?>">
 						<?php echo $item["title"]; ?>
 						</a>
 					</td>						
-					<td>
+					<td class="text_reduce">
 						<a href="02_detail.php?id=<?php echo $item["id"]; ?>&page=<?php echo $page_num; ?>">
 						<?php echo $item["content"]; ?>
 						</a>
@@ -128,7 +128,7 @@
 		</table>
 		<br>
 		<div class="container_0 text_align">
-			<a class="right_page_num hovor_bgc" href="00_list.php/?page=<?php echo $prev_page_num; ?>"><<</a>
+			<a class="right_page_num hovor_bgc" href="00_list.php?page=<?php echo $prev_page_num; ?>"><<</a>
 			<?php
 				$block_num=(int)ceil($page_num/5);
 				$block_first_num=(5*$block_num)-4;
@@ -144,11 +144,9 @@
 			<?php
 				}
 			?>
-			<a class="right_page_num hovor_bgc" href="00_list.php?page=<?php echo $next_page_num; ?>">>></a>
+			<a class="right_page_num hovor_bgc" href="00_list.php?page=<?php echo $next_page_num; ?>">>></a>			
 		</div>
-		<div class="insert_btn_0">
-			<button class="insert_btn_1" onclick="location.href='01_insert.php'";>작 성</button>
-		</div>
-	</div>
+		<button class="insert_btn" onclick="location.href='01_insert.php'";>작 성</button>		
+	</div>	
 </body>
 </html>

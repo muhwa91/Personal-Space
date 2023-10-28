@@ -8,6 +8,7 @@
 	$arr_err_msg = []; // 에러메세지 저장용 변수(배열) 설정
 	$title = ""; // 제목 세팅
 	$content = ""; // 내용 세팅
+	$update_at = ""; // 내용 세팅
 	
 	try {
 		if(!db_conn($conn)) { // DB 연결
@@ -39,6 +40,8 @@
 			// false-빈 값 제출
 			$content = trim(isset($_POST["content"]) ? trim($_POST["content"]) : "");
 			// content 세팅 : title 동일			
+			$update_at = trim(isset($_POST["update_at"]) ? trim($_POST["update_at"]) : "");
+			// content 세팅 : title 동일			
 	
 			if($id === "") {
 				$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "id");
@@ -67,6 +70,7 @@
 					"id" => $id
 					,"title" => $title
 					,"content" => $content 
+					,"update_at" => $update_at
 				];
 				// $_POST 제출 값 $arr_param에 저장
 			
@@ -76,7 +80,7 @@
 					throw new Exception("DB Error : Update_Boards_id");
 				}
 				$conn->commit();
-				header("Location: 02_detail.php/?id={$id}&page={$page}");
+				header("Location: 02_detail.php?id={$id}&page={$page}");
 				exit;
 			}
 		}
@@ -125,47 +129,49 @@
 	<link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="container">		
-		<table class="mini_table">
-			<colgroup>
-				<col width="10%"> 
-				<col width="20%">
-				<col width="50%">
-				<col width="20%">
-			</colgroup>
-			<thead class="mini_table_head">
-				<tr>
-					<th>번호</th>
-					<th>제목</th>
-					<th>내용</th>
-					<th>수정일</th>
-				</tr>					
-			</thead>
-		<form action="03_update.php" method="post">			
-			<tbody class="mini_table_body text_align">
+	<div class="container">		
+		<form class="update_form" action="03_update.php" method="post">			
+			<table class="mini_table_1">
+				<input type="hidden" name="id" value="<?php echo $id ?>">
+				<input type="hidden" name="page" value="<?php echo $page ?>">
+				<colgroup>
+					<col width="10%"> 
+					<col width="20%">
+					<col width="50%">
+					<col width="20%">
+				</colgroup>
+				<thead class="mini_table_head">
 					<tr>
-						<td>
-							<?php echo $item["id"]; ?>
-						</td>						
-						<td>
-							<label for="title"></label>
-							<input class="ins_textarea text_align" name="title" id="title" value="<?php echo $tit_stay; ?>" maxlength="20" spellcheck="false"></input>
-							<!-- $title = ""; 로 선언해두었고, $title = ""; 출력하여 입력 기본 값으로 설정 -->
-							<!-- value 설정해주면 post 파라미터에 저장됨 -->
-						</td>
-						<td>
-							<label for="content"></label>
-							<textarea class="ins_textarea text_align" name="content" id="content" cols="40" rows="10"
-							spellcheck="false"><?php echo $con_stay; ?></textarea>
-							<!-- $content = ""; 로 선언해두었고, $content = ""; 출력하여 입력 기본 값으로 설정 -->
-						</td>
-						<td>
-							<?php echo $item["update_at"]; ?>
-						</td>
-					</tr>				
-			</tbody>
-		</table>
-			<br>
+						<th>번호</th>
+						<th>제목</th>
+						<th>내용</th>
+						<th>수정일</th>
+					</tr>					
+				</thead>
+				<tbody class="mini_table_body text_align">
+						<tr>
+							<td>
+								<?php echo $item["id"]; ?>
+							</td>						
+							<td>
+								<label for="title"></label>
+								<input class="ins_textarea text_align" name="title" id="title" value="<?php echo $tit_stay; ?>" maxlength="20" spellcheck="false"></input>
+								<!-- $title = ""; 로 선언해두었고, $title = ""; 출력하여 입력 기본 값으로 설정 -->
+								<!-- value 설정해주면 post 파라미터에 저장됨 -->
+							</td>
+							<td>
+								<label for="content"></label>
+								<textarea class="ins_textarea" name="content" id="content" cols="40" rows="10"
+								spellcheck="false"><?php echo $con_stay; ?></textarea>
+								<!-- $content = ""; 로 선언해두었고, $content = ""; 출력하여 입력 기본 값으로 설정 -->
+							</td>
+							<td>
+								<?php echo $item["update_at"]; ?>
+							</td>
+						</tr>				
+				</tbody>
+			</table>
+				<br>
 			<div class="container_2 text_align">
 				<button class="button text_align" type="submit">수 정</button>
 				<button class="button text_align" type="button" onclick="location.href='02_detail.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">취 소</button>
