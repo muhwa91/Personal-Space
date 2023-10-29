@@ -70,37 +70,37 @@
 	?>
 	<main>
 		<div class="main_layout">		
-			<table class="board_table">
-				<colgroup>
-					<col width="35%">
-					<col width="60%">
-				</colgroup>
-				<thead class="board_table_head">
-					<tr>
-						<th class="head_th_2">제목</th>
-						<th class="head_th_2">내용</th>
-					</tr>				
-				</thead>
 			<form action="01_insert.php" method="post">			
-				<tbody class="board_table_body">
+				<table class="board_table">
+					<colgroup>
+						<col width="40%">
+						<col width="60%">
+					</colgroup>
+					<thead class="board_table_head">
 						<tr>
-							<td>
+							<th class="head_th_1">제목</th>
+							<th class="head_th_1">내용</th>
+						</tr>				
+					</thead>
+					<tbody class="board_table_body">
+						<tr>
+							<td>								
 								<label for="title"></label>
 								<textarea class="ins_textarea_1" name="title" id="title" value="<?php echo $title; ?>"
-								maxlength="20" placeholder="제목을 작성해주세요." spellcheck="false"></textarea>
+								maxlength="25" placeholder="제목을 작성해주세요." spellcheck="false"></textarea>
 								<!-- $title = ""; 로 선언해두었고, $title = ""; 출력하여 입력 기본 값으로 설정 -->
-								<!-- value 설정해주면 post 파라미터에 저장됨 -->
+								<!-- value 설정해주면 post 파라미터에 저장됨 -->								
 							</td>
 							<td>
 								<label for="content"></label>
 								<textarea class="ins_textarea_2" name="content" id="content" cols="25" rows="10"
-								maxlength="100" placeholder="내용을 작성해주세요." spellcheck="false"><?php echo $content; ?></textarea>
+								maxlength="300" placeholder="내용을 작성해주세요." spellcheck="false"><?php echo $content; ?></textarea>
 								<!-- $content = ""; 로 선언해두었고, $content = ""; 출력하여 입력 기본 값으로 설정 -->
 							</td>
 						</tr>				
-				</tbody>
-			</table>
-				<br><br><br><br><br><br>
+					</tbody>
+				</table>
+				<br>
 				<div class="paging_layout">
 					<button class="btn" type="reset">초기화</button>
 					<button class="btn" type="button" onclick="location.href='00_list.php?page=1'">취 소</button>

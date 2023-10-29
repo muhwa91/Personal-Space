@@ -66,10 +66,10 @@
 				</colgroup>
 				<thead class="board_table_head">
 					<tr>
-						<th class="head_th_2">번호</th>
-						<th class="head_th_2">제목</th>
-						<th class="head_th_2">내용</th>
-						<th class="head_th_2">작성일</th>
+						<th class="head_th_1">번호</th>
+						<th class="head_th_1">제목</th>
+						<th class="head_th_1">내용</th>
+						<th class="head_th_1">작성일</th>
 					</tr>						
 				</thead>
 				<tbody class="board_table_body">
@@ -77,16 +77,16 @@
 						foreach($result as $item) {
 					?>
 					<tr>
-						<td class="body_td_1">
-							<?php echo $item["id"]; ?>
+						<td class="body_td_2">							
+							<?php echo $item["id"]; ?>							
 						</td>
-						<td class="body_td_3">
-							</div><?php echo $item["title"]; ?></div>
-						</td">						
-						<td class="body_td_3">
-							<div><?php echo $item["content"]; ?></div>
+						<td class="body_td_2">
+							<div class="text_cut_1"><?php echo $item["title"]; ?></div>						
+						</td>						
+						<td class="body_td_2">							
+							<div class="text_cut_2"><?php echo $item["content"]; ?></div>						
 						</td>
-						<td class="body_td_1">
+						<td class="body_td_2">
 							<?php echo $item["create_at"]; ?>
 						</td>
 					</tr>
@@ -95,7 +95,7 @@
 					?>
 				</tbody>
 			</table>
-			<br><br><br><br><br><br>
+			<br>
 			<div class="paging_layout">
 				<button class="btn" onclick="location.href='00_list.php?page=<?php echo $page; ?>'";>취 소</button>
 				<button class="btn" onclick="location.href='04_delete.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">삭 제</button>

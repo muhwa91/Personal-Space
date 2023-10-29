@@ -120,10 +120,10 @@
 							<?php echo $item["id"]; ?>
 						</td>
 						<td class="body_td_1">
-							<?php echo $item["title"]; ?>
+							<div class="text_cut_1"><?php echo $item["title"]; ?></div>
 						</td>						
 						<td class="body_td_1">
-							<?php echo $item["content"]; ?>
+							<div class="text_cut_2"><?php echo $item["content"]; ?></div>	
 						</td>
 						<td class="body_td_1">
 							<?php echo $item["create_at"]; ?>
@@ -134,7 +134,7 @@
 					?>
 				</tbody>
 			</table>
-			<br><br><br><br><br><br>
+			<br>
 		<form action="04_delete.php" method="post">
 			<div class="paging_layout">
 				<input type="hidden" name="id" value="<?php echo $id; ?>">

@@ -107,16 +107,16 @@
 						foreach($result as $item) {
 					?>
 					<tr onclick="location.href='02_detail.php?id=<?php echo $item['id']; ?>&page=<?php echo $page_num; ?>'">
-						<td class="body_td_2">							
+						<td class="body_td_1">							
 							<?php echo $item["id"]; ?>							
 						</td>
-						<td class="body_td_2">
-							<div><?php echo $item["title"]; ?></div>						
+						<td class="body_td_1">
+							<div class="text_cut_tit"><?php echo $item["title"]; ?></div>						
 						</td>						
-						<td class="body_td_2">							
-							<div><?php echo $item["content"]; ?></div>						
+						<td class="body_td_1">							
+							<div class="text_cut_con"><?php echo $item["content"]; ?></div>						
 						</td>
-						<td class="body_td_2">
+						<td class="body_td_1">
 							<?php echo $item["create_at"]; ?>
 						</td>
 					</tr>
@@ -125,9 +125,9 @@
 					?>
 				</tbody>
 			</table>
-			<br><br><br><br><br><br>				
+			<br>				
 			<div class="paging_layout">
-				<a class="right_page_num hovor_bgc" href="00_list.php?page=<?php echo $prev_page_num; ?>"><<</a>
+				<a class="page_btn btn_hover" href="00_list.php?page=<?php echo $prev_page_num; ?>"><<</a>
 				<?php
 					$block_num=(int)ceil($page_num/5);
 					$block_first_num=(5*$block_num)-4;
@@ -137,13 +137,13 @@
 						if ($i > $max_page_num) {
 							break;
 						}
-						$str = $page_num === $present_num ? "bgc_black" : "hovor_bgc";					
+						$str = $page_num === $present_num ? "btn_select" : "hovor_bgc";					
 				?>	
-					<a class="right_page_num <?php echo $str; ?>" href="00_list.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+					<a class="page_btn <?php echo $str; ?>" href="00_list.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
 				<?php
 					}
 				?>
-				<a class="right_page_num hovor_bgc" href="00_list.php?page=<?php echo $next_page_num; ?>">>></a>			
+				<a class="page_btn btn_hover" href="00_list.php?page=<?php echo $next_page_num; ?>">>></a>			
 				<button class="btn" onclick="location.href='01_insert.php'";>작 성</button>		
 			</div>
 		</div>

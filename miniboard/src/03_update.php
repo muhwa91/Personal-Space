@@ -134,10 +134,10 @@
 	?>
 	<main>		
 		<div class="main_layout">	
-			<form class="update_form" action="03_update.php" method="post">			
+			<form class="update_form" action="03_update.php" method="post">
+				<input type="hidden" name="id" value="<?php echo $id ?>">
+				<input type="hidden" name="page" value="<?php echo $page ?>">			
 				<table class="board_table">
-					<input type="hidden" name="id" value="<?php echo $id ?>">
-					<input type="hidden" name="page" value="<?php echo $page ?>">
 					<colgroup>
 						<col width="10%"> 
 						<col width="20%">
@@ -153,29 +153,30 @@
 						</tr>					
 					</thead>
 					<tbody class="board_table_body">
-							<tr>
-								<td class="body_td_1">
-									<?php echo $item["id"]; ?>
-								</td>						
-								<td>
-									<label for="title"></label>
-									<input class="up_textarea_1" name="title" id="title" value="<?php echo $tit_stay; ?>" maxlength="20" spellcheck="false">
-									<!-- $title = ""; 로 선언해두었고, $title = ""; 출력하여 입력 기본 값으로 설정 -->
-									<!-- value 설정해주면 post 파라미터에 저장됨 -->
-								</td>
-								<td>
-									<label for="content"></label>
-									<textarea class="up_textarea_2" name="content" id="content" cols="40" rows="5"
-									spellcheck="false"><?php echo $con_stay; ?></textarea>
-									<!-- $content = ""; 로 선언해두었고, $content = ""; 출력하여 입력 기본 값으로 설정 -->
-								</td>
-								<td class="body_td_1">
-									<?php echo $item["update_at"]; ?>
-								</td>
-							</tr>				
+						<tr>
+							<td class="body_td_2">
+								<?php echo $item["id"]; ?>
+							</td>						
+							<td class="body_td_2">
+								<label for="title"></label>
+								<input class="up_textarea_1" name="title" id="title" value="<?php echo $tit_stay; ?>" 
+								maxlength="25" spellcheck="false">
+								<!-- $title = ""; 로 선언해두었고, $title = ""; 출력하여 입력 기본 값으로 설정 -->
+								<!-- value 설정해주면 post 파라미터에 저장됨 -->
+							</td>
+							<td class="body_td_2">
+								<label for="content"></label>
+								<textarea class="up_textarea_2" name="content" id="content" cols="25" rows="10"
+								maxlength="300" spellcheck="false"><?php echo $con_stay; ?></textarea>
+								<!-- $content = ""; 로 선언해두었고, $content = ""; 출력하여 입력 기본 값으로 설정 -->
+							</td>
+							<td class="body_td_2">
+								<?php echo $item["update_at"]; ?>
+							</td>
+						</tr>				
 					</tbody>
 				</table>
-				<br><br><br><br><br><br>
+				<br>
 			<div class="paging_layout">
 				<button class="btn" type="button" onclick="location.href='02_detail.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">취 소</button>
 				<button class="btn" type="submit">수 정</button>
