@@ -83,67 +83,66 @@
 
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>delete</title>
-	<link rel="stylesheet" href="./css/common.css">
-	<link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>delete</title>
+		<link rel="stylesheet" href="./css/common.css">
+		<link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
+	</head>
 <body>
 	<?php
-		require_once(FILE_HEADER);
+	require_once(FILE_HEADER);
 	?>
 	<main>		
 		<div class="main_layout">
-			<table class="board_table">
-				<colgroup>
-					<col width="10%"> 
-					<col width="20%">
-					<col width="50%">
-					<col width="20%">
-				</colgroup>
-				<thead class="board_table_head">
-					<tr>
-						<th class="head_th_1">번호</th>
-						<th class="head_th_1">제목</th>
-						<th class="head_th_1">내용</th>
-						<th class="head_th_1">작성일</th>
-					</tr>				
-				</thead>
-				<tbody class="board_table_body">
-					<?php
-						foreach($result as $item) {
-					?>
-					<tr>
-						<td class="body_td_1">
-							<?php echo $item["id"]; ?>
-						</td>
-						<td class="body_td_1">
-							<div class="text_cut_1"><?php echo $item["title"]; ?></div>
-						</td>						
-						<td class="body_td_1">
-							<div class="text_cut_2"><?php echo $item["content"]; ?></div>	
-						</td>
-						<td class="body_td_1">
-							<?php echo $item["create_at"]; ?>
-						</td>
-					</tr>
-					<?php	
-					} 
-					?>
-				</tbody>
-			</table>
-			<br>
-		<form action="04_delete.php" method="post">
-			<div class="paging_layout">
-				<input type="hidden" name="id" value="<?php echo $id; ?>">
-				<button class="btn" type="button" onclick="location.href='02_detail.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">취 소</button>
-				<button class="delete_btn" type="submit">삭 제</button>
-			</div> 
-		</form>  
-	</div>
-
-	<script src="./css/style.js"></script>
+			<form action="04_delete.php" method="post">
+				<table class="board_table">
+					<colgroup>
+						<col width="10%"> 
+						<col width="20%">
+						<col width="50%">
+						<col width="20%">
+					</colgroup>
+					<thead class="board_table_head">
+						<tr>
+							<th class="head_th_1">번호</th>
+							<th class="head_th_1">제목</th>
+							<th class="head_th_1">내용</th>
+							<th class="head_th_1">수정일</th>
+						</tr>				
+					</thead>
+					<tbody class="board_table_body">
+						<?php
+							foreach($result as $item) {
+						?>
+						<tr>
+							<td class="body_td_1">
+								<?php echo $item["id"]; ?>
+							</td>
+							<td class="body_td_1">
+								<div class="text_cut_1"><?php echo $item["title"]; ?></div>
+							</td>						
+							<td class="body_td_1">
+								<div class="text_cut_2"><?php echo $item["content"]; ?></div>	
+							</td>
+							<td class="body_td_1">
+								<?php echo $item["update_at"]; ?>
+							</td>
+						</tr>
+						<?php	
+						} 
+						?>
+					</tbody>
+				</table>
+				<br>
+				<div class="paging_layout">
+					<input type="hidden" name="id" value="<?php echo $id; ?>">
+					<button class="btn" type="button" onclick="location.href='02_detail.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">취 소</button>
+					<button class="btn_1" onclick="if(deLete()) location.href='00_list.php?page=<?php echo $page; ?>'">삭 제</button>
+				</div>
+			</form>  
+		</div>
+<script src="./css/style.js"></script>
 </body>
 </html>

@@ -106,7 +106,7 @@
 					<?php
 						foreach($result as $item) {
 					?>
-					<tr onclick="location.href='02_detail.php?id=<?php echo $item['id']; ?>&page=<?php echo $page_num; ?>'">
+					<tr class="table_tr" onclick="location.href='02_detail.php?id=<?php echo $item['id']; ?>&page=<?php echo $page_num; ?>'">
 						<td class="body_td_1">							
 							<?php echo $item["id"]; ?>							
 						</td>

@@ -69,7 +69,7 @@
 						<th class="head_th_1">번호</th>
 						<th class="head_th_1">제목</th>
 						<th class="head_th_1">내용</th>
-						<th class="head_th_1">작성일</th>
+						<th class="head_th_1">수정일</th>
 					</tr>						
 				</thead>
 				<tbody class="board_table_body">
@@ -87,7 +87,7 @@
 							<div class="text_cut_2"><?php echo $item["content"]; ?></div>						
 						</td>
 						<td class="body_td_2">
-							<?php echo $item["create_at"]; ?>
+							<?php echo $item["update_at"]; ?>
 						</td>
 					</tr>
 					<?php	
@@ -98,10 +98,10 @@
 			<br>
 			<div class="paging_layout">
 				<button class="btn" onclick="location.href='00_list.php?page=<?php echo $page; ?>'";>취 소</button>
-				<button class="btn" onclick="location.href='04_delete.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">삭 제</button>
-				<button class="btn" onclick="location.href='03_update.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">수 정</button>
+				<button class="btn_1" onclick="location.href='04_delete.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">삭 제</button>
+				<button class="btn" onclick=" location.href='03_update.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">수 정</button>
 			</div>    
 		</div>
-	</main>
+	</main>	
 </body>
 </html>

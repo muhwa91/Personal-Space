@@ -7,6 +7,7 @@
 	$conn = null; // DB Connection 변수
 	$http_method = $_SERVER["REQUEST_METHOD"]; // 메소드 확인
 	$arr_err_msg = []; // 에러메세지 저장용 변수(배열) 설정
+	$id = "";
 	$title = ""; // 제목 세팅
 	$content = ""; // 내용 세팅
 	$update_at = ""; // 내용 세팅
@@ -42,7 +43,7 @@
 			$content = trim(isset($_POST["content"]) ? trim($_POST["content"]) : "");
 			// content 세팅 : title 동일			
 			$update_at = trim(isset($_POST["update_at"]) ? trim($_POST["update_at"]) : "");
-			// content 세팅 : title 동일			
+			// update_at 세팅 : title 동일			
 	
 			if($id === "") {
 				$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "id");
@@ -153,6 +154,9 @@
 						</tr>					
 					</thead>
 					<tbody class="board_table_body">
+						<?php
+							foreach($result as $item) {
+						?>
 						<tr>
 							<td class="body_td_2">
 								<?php echo $item["id"]; ?>
@@ -161,27 +165,28 @@
 								<label for="title"></label>
 								<input class="up_textarea_1" name="title" id="title" value="<?php echo $tit_stay; ?>" 
 								maxlength="25" spellcheck="false">
-								<!-- $title = ""; 로 선언해두었고, $title = ""; 출력하여 입력 기본 값으로 설정 -->
-								<!-- value 설정해주면 post 파라미터에 저장됨 -->
 							</td>
 							<td class="body_td_2">
 								<label for="content"></label>
 								<textarea class="up_textarea_2" name="content" id="content" cols="25" rows="10"
 								maxlength="300" spellcheck="false"><?php echo $con_stay; ?></textarea>
-								<!-- $content = ""; 로 선언해두었고, $content = ""; 출력하여 입력 기본 값으로 설정 -->
 							</td>
 							<td class="body_td_2">
 								<?php echo $item["update_at"]; ?>
 							</td>
-						</tr>				
+						</tr>
+						<?php	
+						} 
+						?>				
 					</tbody>
 				</table>
 				<br>
-			<div class="paging_layout">
-				<button class="btn" type="button" onclick="location.href='02_detail.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">취 소</button>
-				<button class="btn" type="submit">수 정</button>
-			</div>
-		</form>  		
-	</div>
+				<div class="paging_layout">
+					<button class="btn" type="button" onclick="location.href='02_detail.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">취 소</button>
+					<button class="btn" type="submit">수 정</button>
+				</div>
+			</form>  		
+		</div>
+	</main>
 </body>
 </html>

@@ -42,21 +42,30 @@ a {
   background-image: url(/doc/img/ggobugi.png);
   background-size: contain;
   background-position: center;
-  background-repeat: no-repeat;           
+  background-repeat: no-repeat;
+  position: relative;           
 }
 
 .board_table {
   margin: 0px auto;
   width: 1300px;
-  height: 700px;
   border: none;
   table-layout: fixed;   
+}
+
+.board_table_body {
+  width: 1300px;
+  height: 100px;
+  table-layout: fixed;  
 }
 
 .paging_layout {
   width: 85%;
   height: 70px;
   margin: 0 auto;
+  position: absolute;
+  bottom: 0px;
+  left: 150px;
   text-align: center;
   font-size: 1.5rem;
 }
@@ -74,7 +83,7 @@ a {
 
 .body_td_1 {
   width: 1300px;
-  height: 100px;
+  height: 120px;
   font-size: 1.5rem;
   font-weight: bold;
   color: rgb(255, 255, 255);
@@ -102,6 +111,7 @@ a {
 .page_btn {
   width: 70px;
   height: 40px;
+  font-family: "Orbit", sans-serif;
   display: block;
   float: left ;
   border: none;
@@ -122,8 +132,11 @@ a {
   width: 100px;
   height: 40px;
   margin: 0px 20px;
+  font-family: "Orbit", sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
   border: none;
-  border-radius: 10%;
+  border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.5);
   float: right;
   cursor: pointer;
@@ -167,7 +180,7 @@ textarea:focus {
 
 .body_td_2 {
   width: 1300px;
-  height: 620px;
+  height: 616px;
   font-size: 1.5rem;
   font-weight: bold;
   color: rgb(255, 255, 255);
@@ -177,7 +190,7 @@ textarea:focus {
 
 .text_cut_1 {
   width: 250px;
-  height: 620px;
+  height: 616px;
   display: block;
   overflow: auto;
   text-overflow: ellipsis;  
@@ -185,10 +198,24 @@ textarea:focus {
 
 .text_cut_2 {
   width: 645px;
-  height: 620px;
+  height: 616px;
   display: block;
   overflow: auto;
   text-overflow: ellipsis;  
+}
+
+.btn_1 {
+  width: 100px;
+  height: 40px;
+  margin: 0px 20px;
+  font-family: "Orbit", sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  float: right;
+  cursor: pointer;
 }
 
 /* ------------ */
@@ -233,8 +260,11 @@ input:focus {
   width: 100px;
   height: 40px;
   margin: 0px 20px;
+  font-family: "Orbit", sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
   border: none;
-  border-radius: 10%;
+  border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.5);
   float: right;
   cursor: pointer;
