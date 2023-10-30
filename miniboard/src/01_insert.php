@@ -94,7 +94,7 @@
 							<td>
 								<label for="content"></label>
 								<textarea class="ins_textarea_2" name="content" id="content" cols="25" rows="10"
-								maxlength="300" placeholder="내용을 작성해주세요." spellcheck="false"><?php echo $content; ?></textarea>
+								placeholder="내용을 작성해주세요." spellcheck="false"><?php echo $content; ?></textarea>
 								<!-- $content = ""; 로 선언해두었고, $content = ""; 출력하여 입력 기본 값으로 설정 -->
 							</td>
 						</tr>				

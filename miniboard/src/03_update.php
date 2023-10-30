@@ -65,13 +65,16 @@
 			if($content === "") {
 				$arr_err_msg[] = sprintf(ERROR_MSG_PARAM, "내용");
 			}
+			$now = date("Y-m-d H:i:s");
+			// var_dump($now);
 			// title과 동일
 			// 에러 메세지가 없을 경우에 업데이트 처리
 			if(count($arr_err_msg) === 0) { // 에러메세지가 0일 경우 
 				$arr_param = [
 					"id" => $id
 					,"title" => $title
-					,"content" => $content 
+					,"content" => $content
+					,"update_at" => $now
 				];
 				// $_POST 제출 값 $arr_param에 저장
 			

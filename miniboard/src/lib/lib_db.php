@@ -200,6 +200,7 @@ function db_update_boards_id(&$conn, &$arr_param) {
 		." SET " 
 		." 		title = :title "
 		.", 	content = :content "
+		.",		update_at = :update_at "
 		." WHERE "
 		." 		id = :id "
 		;
@@ -208,6 +209,7 @@ function db_update_boards_id(&$conn, &$arr_param) {
 			":id" => $arr_param["id"]
 			,":title" => $arr_param["title"]
 			,":content" => $arr_param["content"]
+			,":update_at" => $arr_param["update_at"]
 		];
 		
 		$stmt = $conn->prepare($sql);

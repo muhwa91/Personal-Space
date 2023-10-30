@@ -34,6 +34,8 @@
 		} else if(!(count($result) === 1)) {
 		throw new Exception("DB Error : PDO Select_id count, ".count($result));
 		}
+		// var_dump($result);
+		$item = $result[0];
 	} catch(Exception $e) {
 		echo $e->getMessage();
 		exit;
@@ -76,15 +78,15 @@
 					<?php
 						foreach($result as $item) {
 					?>
-					<tr>
+					<tr height="618px">
 						<td class="body_td_2">							
 							<?php echo $item["id"]; ?>							
 						</td>
-						<td class="body_td_2">
-							<div class="text_cut_1"><?php echo $item["title"]; ?></div>						
+						<td class="body_td_2">						
+							<?php echo $item["title"]; ?>	
 						</td>						
 						<td class="body_td_2">							
-							<div class="text_cut_2"><?php echo $item["content"]; ?></div>						
+							<?php echo $item["content"]; ?>						
 						</td>
 						<td class="body_td_2">
 							<?php echo $item["update_at"]; ?>
