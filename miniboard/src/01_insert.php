@@ -1,7 +1,7 @@
 <?php
 	define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/src/"); // 웹서버root
 	define("FILE_HEADER", ROOT."header.php"); // 헤더 패스
-	define("ERROR_MSG_PARAM", "%s을 입력해 주세요."); // 파라미터 에러 메세지 // 제목, 내용
+	define("ERROR_MSG_PARAM", "<%s 입력!>"); // 파라미터 에러 메세지 // 제목, 내용
 	require_once(ROOT."lib/lib_db.php");// DB관련 라이브러리
 
 	$conn = null; // DB Connection 변수
@@ -101,8 +101,16 @@
 					</tbody>
 				</table>
 				<br>
+				<div class="insert_err_layout">
+					<?php
+						foreach ($arr_err_msg as $item) {
+					?>					
+					<span class="insert_err"><?php echo $item; ?></span>
+					<?php
+						}
+					?>	
+				</div>	
 				<div class="paging_layout">
-					<button class="btn" type="reset">초기화</button>
 					<button class="btn" type="button" onclick="location.href='00_list.php?page=1'">취 소</button>
 					<button class="btn" type="submit">작 성</button>
 				</div>

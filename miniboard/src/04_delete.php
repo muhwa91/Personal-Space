@@ -117,16 +117,16 @@
 							foreach($result as $item) {
 						?>
 						<tr height="618px">
-							<td class="body_td_1">
+							<td class="body_td_3">
 								<?php echo $item["id"]; ?>
 							</td>
-							<td class="body_td_1">
+							<td class="body_td_3">
 								<?php echo $item["title"]; ?>
 							</td>						
-							<td class="body_td_1">
+							<td class="body_td_3">
 								<?php echo $item["content"]; ?>	
 							</td>
-							<td class="body_td_1">
+							<td class="body_td_3">
 								<?php echo $item["update_at"]; ?>
 							</td>
 						</tr>
@@ -139,10 +139,10 @@
 				<div class="paging_layout">
 					<input type="hidden" name="id" value="<?php echo $id; ?>">
 					<button class="btn" type="button" onclick="location.href='02_detail.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">취 소</button>
-					<button class="btn_1" onclick="if(deLete()===true) {location.href='00_list.php?page=<?php echo $page; ?>'} else {alert('1')}">삭 제</button>
+					<button class="btn_1" onclick="return deLete()">삭 제</button>
 				</div>
 			</form>  
 		</div>
-<script src="./css/style.js"></script>
+	<script src="./css/style.js"></script>
 </body>
 </html>

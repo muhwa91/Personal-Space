@@ -104,6 +104,7 @@
 				<button class="btn" onclick=" location.href='03_update.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">수 정</button>
 			</div>    
 		</div>
-	</main>	
+	</main>
+	<script src="./css/style.js"></script>	
 </body>
 </html>

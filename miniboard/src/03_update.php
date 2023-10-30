@@ -1,7 +1,7 @@
 <?php
 	define("ROOT", $_SERVER["DOCUMENT_ROOT"]."/src/"); // 웹서버root
 	define("FILE_HEADER", ROOT."header.php"); // 헤더 패스
-	define("ERROR_MSG_PARAM", "%s을 입력해 주세요."); // 파라미터 에러 메세지 // 제목, 내용
+	define("ERROR_MSG_PARAM", "<%s 입력!>"); // 파라미터 에러 메세지 // 제목, 내용
 	require_once(ROOT."lib/lib_db.php");// DB관련 라이브러리
 
 	$conn = null; // DB Connection 변수
@@ -160,7 +160,7 @@
 						<?php
 							foreach($result as $item) {
 						?>
-						<tr>
+						<tr height="618px">
 							<td class="body_td_2">
 								<?php echo $item["id"]; ?>
 							</td>						
@@ -170,9 +170,8 @@
 								maxlength="25" spellcheck="false">
 							</td>
 							<td class="body_td_2">
-								<label for="content"></label>
 								<textarea class="up_textarea_2" name="content" id="content" cols="25" rows="10"
-								maxlength="300" spellcheck="false"><?php echo $con_stay; ?></textarea>
+								maxlength="300" spellcheck="false"><?php echo $con_stay; ?></textarea>				
 							</td>
 							<td class="body_td_2">
 								<?php echo $item["update_at"]; ?>
@@ -184,12 +183,23 @@
 					</tbody>
 				</table>
 				<br>
-				<div class="paging_layout">
+				<div class="update_err_layout">
+					<?php
+						foreach ($arr_err_msg as $item) {
+					?>					
+					<span class="update_err"><?php echo $item; ?></span>
+					<?php
+						}
+					?>	
+				</div>					 				
+				<div class="paging_layout">										
 					<button class="btn" type="button" onclick="location.href='02_detail.php?id=<?php echo $id; ?>&page=<?php echo $page; ?>'">취 소</button>
-					<button class="btn" type="submit">수 정</button>
+					<button class="btn" type="submit">수 정</button>												
 				</div>
+							 
 			</form>  		
 		</div>
 	</main>
+	<script src="./css/style.js"></script>
 </body>
 </html>

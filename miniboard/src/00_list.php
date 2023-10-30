@@ -148,5 +148,6 @@
 			</div>
 		</div>
 	</main>
+	<script src="./css/style.js"></script>
 </body>
 </html>
