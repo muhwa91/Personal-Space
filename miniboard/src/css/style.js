@@ -19,9 +19,9 @@ function Time() {
 	let year = now.getFullYear();
 	let month = now.getMonth()+1;
 	let date = now.getDate();
-	let hour = now.getHours();
-	let min = now.getMinutes();
-	let sec = now.getSeconds();
+	let hour = ('0' + now.getHours()).slice(-2);
+	let min = ('0' + now.getMinutes()).slice(-2);
+	let sec = ('0' + now.getSeconds()).slice(-2);
 	let P1 = document.querySelector('.time span')
 	P1.innerHTML = ' ' + year + '-' + month + '-' + date + ' ' + hour + ':' + min + ':' +  sec;
 }
