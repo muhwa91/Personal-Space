@@ -7,6 +7,7 @@
 
 // var currentYear, birthYear, age;
 // currentYear = 2023;
+// let currentYear, birthYear, age;
 
 // birthYear = [prompt("태어난 연도 입력(YYYY)", "입력해")];
 // age = currentYear - birthYear + 1;
