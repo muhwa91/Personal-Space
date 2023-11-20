@@ -18,3 +18,50 @@ function getItem() {
 	})
 	.catch(error => console.log(error));
 }
+
+// cf) laravel_api 서버연결 후 DB연동 값 확인가능
+// 게시글 작성
+function addItem() {
+	fetch('http://localhost:8000/api/item', {
+		method: 'POST',
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify({
+			"data": {
+				"content": "이거 데이터 나옴?"
+			}
+		})
+	})
+	.then(response => response.json())
+	.then(data => console.log(data))
+	.catch(error => console.log(error))
+}
+
+// 게시글 수정
+function updateItem() {
+	fetch('http://localhost:8000/api/item/5', { // 세그먼트 파라미터 잊지말기
+		method: 'PUT',
+		headers: {
+			"Content-Type": "application/json" // 통신 시 필요한 설정값을 넣는 구역(html 헤더부분)
+		},
+		body: JSON.stringify({
+			"data": {
+				"completed": "1"
+			}
+		})
+	})
+	.then(response => response.json())
+	.then(data => console.log(data))
+	.catch(error => console.log(error))
+}
+
+// 게시글 삭제
+function deleteItem() {
+	fetch('http://localhost:8000/api/item/5', {
+		method: 'DELETE' // delete 세팅 값 없음	
+	})
+	.then(response => response.json())
+	.then(data => console.log(data))
+	.catch(error => console.log(error))
+}
