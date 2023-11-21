@@ -1,40 +1,26 @@
 <template>
-  <div class="nav">
-    <div class="nav_img">
-      <img src="@/assets/img/headerNav_logo.png" alt="">
-    </div>
-    <div class="nav_a">
-      <a v-for="item in headerNav" :key="item">{{ item }}</a>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
+  <img alt="Vue logo" src="./assets/logo.png">
+  <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
 <script>
-// import data from './assets/js/common.js';
-
+import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  data() {
-    return {
-      headerNav : ['게임정보', '새소식', '다운로드', 'E스포츠', '이벤트', '알아보기', '유니버스', '라이엇 스토어', '고객지원'],
-    }
-  },
-  methods: {
-
+  name: 'App',
+  components: {
+    HelloWorld
   }
 }
 </script>
 
 <style>
-@import url(./assets/css/common.css);
-
-
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>
