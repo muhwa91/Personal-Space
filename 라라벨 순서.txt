@@ -1,0 +1,93 @@
+라라벨 순서
+1. 라라벨 프로젝트 만들기
+	composer create-project laravel/laravel="9" laravel_board
+
+2. 모델 마이그레이션 팩토리 시더
+	php artisan make:migration create_user_table
+	php artisan make:model Board -m
+
+3. 마이그레이션 작업-> 데이터베이스 만들기
+	php artisan migrate
+	// migrate 에러 뜨면 롤백부터 하기!!!!!
+
+4/5. 컨트롤러 작업 + 라우터 작업
+	php artisan make:controller UserController --resource
+	
+	Route::resource('/user', UserController::class);
+	// php artisan route:list 치면 확인가능
+	// 할때 컨트롤러 use해야함
+
+6. 뷰 작업 (레이아웃)
+	레이아웃 페이지 만들고 
+	@yield('title','Laravel Board')
+    @include('layout.header')
+    @yield('main')
+    @include('layout.footer')
+
+	-> 로그인페이지 @extends('layout.layout')
+	-> 메인영역에서 꾸미기
+	// 폼태그에 @csrf
+
+7. 컨트롤러가서 데이터받기(only)
+	->데이터암호화(해쉬함수use하기 use Illuminate\Support\Facades\Hash)
+	->모델 접근(모델 use하기)
+	// 이게 ORM이라고 한다. 오브젝트 릴레이션십 매핑
+	//  $result = User::create($data)
+	// find는 특정 pk를 가지고 select하는거
+	-> 유효성 검사 (use Illuminate\Support\Facades\Validator)
+	-> 실패 유효성 메시지 + 리턴값 리다이렉트로 + 뷰에서 에러메시지 출력해주기
+	-> 인증절차(use auth)
+    // Auth::login($result);
+	
+	
+	유효성 검사 + 인증절차 = 미들웨어 활용
+	// 미들웨어 생성 명렁어
+    // php artisan make:middleware 미들웨어명
+	
+	라우터 그룹화
+	
+	
+	config timezone 변경 + 119라인도 변경
+	
+	
+	
+
+	
+	
+	-----------------------------------라라벨과뷰 연동
+	1. 라라벨 프로젝트 만들기
+	// composer create-project laravel/laravel="9" ~~~
+	
+	2. 라라벨 폴더 안에 들어가서(cd) 뷰 인스톨
+	// npm install
+	
+	3. 
+	// npm run dev
+	
+	4. 
+	// npm install --save-dev vue
+	
+	5. 리소스 안에 components 파일 생성 -> App.vue 생성 name: App
+	
+	6. app.js에 내용 추가
+	// import { createApp } from 'vue';
+	// import App from '../components/App.vue';
+	// createApp(App).mount('#app');
+	
+	7.webpack.mix.js에 내용 추가
+	//    .vue({
+    //    version: 3,
+    // })
+	
+	8. views->welcome.blade.php에 다 삭제하고 !tab 후 script랑 div추가
+	//<script src="{{asset('js/app.js')}}" defer></script>
+    // <div id="app"></div>
+	
+	9. 
+	// npm install --``save-dev vue-loader
+	
+	10. 여기까지하고 cmd에 npm run dev치면 컴파일 완료까지 되어야한다.
+	// php artisan serve ㄱㄱ
+	
+	11.
+	// npm run watch
