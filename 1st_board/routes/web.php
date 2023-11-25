@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BoardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,8 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('', function () {
-    return view('main');
+Route::get('/', function () {
+    return view('login');
 });
 
 Route::get('/user/login', [UserController::class, 'login_get'])->name('user.login.get'); 
@@ -28,3 +29,13 @@ Route::middleware('UserInfoValidation')->post('/user/register', [UserController:
 // 회원가입 처리
 Route::get('/user/logout', [UserController::class, 'logout_get'])->name('user.logout.get'); 
 // 로그아웃 처리
+
+Route::middleware('auth')->resource('/board', BoardController::class);
+
+//   GET|HEAD  board .......................... board.index › BoardController@index  게시판 화면이동
+//   GET|HEAD  board/create ................... board.create › BoardController@create  게시글 create 화면이동
+//   POST      board .......................... board.store › BoardController@store  게시글 insert 처리
+//   GET|HEAD  board/{board} .................. board.show › BoardController@show  게시글 detail 화면이동
+//   DELETE    board/{board} .................. board.destroy › BoardController@destroy  게시글 delete 처리
+//   GET|HEAD  board/{board}/edit ............. board.edit › BoardController@edit  게시글 update 화면이동
+//   PUT|PATCH board/{board} .................. board.update › BoardController@update  게시글 update 처리

@@ -6,11 +6,14 @@
         <nav id="nav">
             <ul>
                 @auth
-                <li class="current_page_item"><a href="index.html">Home</a></li>
-                <li><a href="#">토론장</a></li>
+                <li class="current_page_item"><a href="#">Home</a></li>
+                <li><a href="#">토론장</a></li> 
+                {{-- 토론장은 게시판 형식으로 만들기 --}}
+                <li><a href="{{route('user.logout.get')}}">로그아웃</a></li>
                 @endauth
-                <li><a href="{{route('user.login.get')}}">로그인</a></li>
-                <li><a href="#">회원가입</a></li>
+                @guest
+                <li><a href="{{route('user.register.get')}}">회원가입</a></li>
+                @endguest
             </ul>
         </nav>
     </div>

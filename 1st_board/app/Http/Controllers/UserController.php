@@ -12,10 +12,9 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function login_get() {
-        // 로그인 유저 board.index 이동
         if(Auth::check()) {
             return redirect()->route('board.index');
-        }
+        }     
         return view('login');
     }
 
@@ -41,12 +40,12 @@ class UserController extends Controller
         return redirect()->route('board.index');
     }
 
-    public function registrer_get() {
+    public function register_get() {
         return view('register');
     }
 
     public function register_post(Request $request) {
-        $data = $request->only('email', 'password', 'name'); // 배열로 only 내 데이터 확인가능        
+        $data = $request->only('email', 'password', 'name', 'tel'); // 배열로 only 내 데이터 확인가능        
         // var_dump($data);
 
         $data['password'] = Hash::make($data['password']); // 비밀번호 암호화        

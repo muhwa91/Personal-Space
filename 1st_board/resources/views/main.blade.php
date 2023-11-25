@@ -35,7 +35,7 @@
                         <div class="col-6 col-12-medium">
                             <section>
                                 <header class="major">
-                                    <h2>챔피언 기획 해설: 흐웨이</h2>
+                                    <h2>챔피언 기획 해설 : 흐웨이</h2>
                                     <p>예술가와 창작가는 보통 무언가를 만들고자 하는 욕구가 무엇보다 강합니다.</p>
                                 </header>
                                 <p>흐웨이는 아이오니아의 작은 섬 코이엔에 있는 사원에서 어린 시절을 보내며 예술과 회화를 갈고닦았습니다. 
@@ -58,49 +58,32 @@
                             <!-- Article list -->
                                 <section class="box article-list">
                                     <h2 class="icon fa-file-alt"></h2>
-
                                     <!-- Excerpt -->
+                                @php
+                                    $limitdata = $data->take(3);
+                                    // DB에서 받아온 값을 3개만 출력하기 위해 take(3)사용
+                                @endphp                                
+                                    @forelse($limitdata as $item)
                                         <article class="box excerpt">
                                             <a href="#" class="image left"><img src="images/pic04.jpg" alt="" /></a>
                                             <div>
                                                 <header>
                                                     <span class="date">11월 23일</span>
-                                                    <h3><a href="#">13.23 패치노트</a></h3>
+                                                    <h3><a href="#">{{$item->d_title}}</a></h3>
                                                 </header>
-                                                <p>이번 패치에서는 조정이 필요한 몇몇 챔피언과, 크산테에 적용된 변경 사항과 같이 지난 패치에 변경한 일부 사항을 조정하는 데 집중했습니다. 
-                                                    2024년 14.1 패치에서는 대규모 변경 사항이 예정되어 있습니다. 
-                                                    이를 다듬고 준비하는 데 더욱더 집중하고 있어 이번 패치와 13.24 패치는 평소보다 더 작고 단순할 것이라는 점을 말씀드립니다!</p>
+                                                <p>{{$item->d_content}}</p>
+                                                <a href="{{route('board.show', ['board' => $item->d_id])}}" class="button alt icon solid fa-file-alt">자세히 보기</a>
+                                                {{-- board.show라우트의 url은 board/{board}이므로, url상에서 동적으로 변하는 값으로 설정하기 위해
+	                                            세그먼트 파라미터인 {board}에 $item->d_id 설정
+			                                    (배열표기법을 사용하여 {board} 세그먼트 파라미터에 $item->d_id 아규먼트 전달) --}}
                                             </div>
-                                        </article>
-
-                                    <!-- Excerpt -->
-                                        <article class="box excerpt">
-                                            <a href="#" class="image left"><img src="images/pic05.jpg" alt="" /></a>
-                                            <div>
-                                                <header>
-                                                    <span class="date">11월 22일</span>
-                                                    <h3><a href="#">13.22 패치노트 (수정)</a></h3>
-                                                </header>
-                                                <p>이번 패치에 Heartsteel 스킨으로 확 튀어보거나 새로운 신화급 빅히트 True Damage 에코를 확인하거나 신화급 상점에 교체된 상품을 확인해 보세요. 
-                                                    지난 9월 항저우 아시안게임 리그 오브 레전드 종목에서 금메달을 획득한 선수들을 축하하기 위한 “제19회 항저우 아시안게임 금메달 아이콘” 도 이번 패치 기간 내에 출시됩니다. 
-                                                    그리고 무작위 총력전과 돌격! 넥서스도 조정됩니다!</p>
-                                            </div>
-                                        </article>
-
-                                    <!-- Excerpt -->
-                                        <article class="box excerpt">
-                                            <a href="#" class="image left"><img src="images/pic06.jpg" alt="" /></a>
-                                            <div>
-                                                <header>
-                                                    <span class="date">11월 21일</span>
-                                                    <h3><a href="#">13.21 패치노트 (수정)</a></h3>
-                                                </header>
-                                                <p>전반적으로 초반부터 격차를 벌리는 속도가 줄어들고 플레이어 간 교전이 증가했으며 평균적으로 게임 시간이 약간 길어져서 이전 패치의 주요 목표는 달성했지만, 
-                                                    게임 후반에 강해지는 챔피언은 게임 초반에 강한 챔피언보다 승률이 높아 밸런스 조정이 필요해졌습니다.</p>
-                                            </div>
-                                        </article>
-
+                                        </article>                
                                 </section>
+                                    @empty
+                                    <div>게시글 없음</div><br>
+                                    @endforelse
+                                <a href="{{route('board.create')}}" class="button medium icon solid fa-arrow-circle-right">글 작성</a>  
+                                
                         </div>
                         <div class="col-4 col-12-medium">
                             <!-- Spotlight -->
@@ -130,5 +113,6 @@
             </div>
         </div>
     </div>
+    
 </main>
 @endsection

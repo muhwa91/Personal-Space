@@ -20,7 +20,7 @@ class UserInfoValidation
     {
         // 미들웨어 발리데이션 사용할 때 app>Kernel.php>protected $routeMiddleware 추가
 
-    Log::debug("*****유저 유효성 체크 시작*****");
+    Log::debug("*****유저 유효성 체크 시작*****");        
 
         // 항목리스트
         $BaseKey = [ // DB 컬럼명
@@ -38,6 +38,7 @@ class UserInfoValidation
             , 'name'                    => 'required|regex:/^[a-zA-Z가-힣]+$/|min:2|max:50' 
             // 필수입력, 정규식, 최소입력, 최대입력
             , 'password'                => 'required' 
+            // 필수입력
             , 'password_confirmation'   => 'same:password' 
             // 비밀번호와 동일한지 비교
             , 'tel'                     => 'required|regex:/^010[0-9]{8}$/'
