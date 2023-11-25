@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('login');
 });
 
+Route::get('/board.index', [UserController::class, 'main_get'])->name('main.get');
+// 홈으로 이동
 Route::get('/user/login', [UserController::class, 'login_get'])->name('user.login.get'); 
 // 로그인 화면 이동
 Route::middleware('UserInfoValidation')->post('/user/login', [UserController::class, 'login_post'])->name('user.login.post'); 

@@ -11,6 +11,13 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    public function main_get() {
+        if(Auth::check()) {
+            return redirect()->route('board.index');
+        }
+        return view('main');
+    }
+
     public function login_get() {
         if(Auth::check()) {
             return redirect()->route('board.index');

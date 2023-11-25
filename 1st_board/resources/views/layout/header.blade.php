@@ -6,7 +6,7 @@
         <nav id="nav">
             <ul>
                 @auth
-                <li class="current_page_item"><a href="#">Home</a></li>
+                <li><a href="{{route('main.get')}}">Home</a></li>
                 <li><a href="#">토론장</a></li> 
                 {{-- 토론장은 게시판 형식으로 만들기 --}}
                 <li><a href="{{route('user.logout.get')}}">로그아웃</a></li>
