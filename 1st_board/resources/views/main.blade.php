@@ -59,11 +59,7 @@
                                 <section class="box article-list">
                                     <h2 class="icon fa-file-alt"></h2>
                                     <!-- Excerpt -->
-                                @php
-                                    $limitdata = $data->take(3);
-                                    // DB에서 받아온 값을 3개만 출력하기 위해 take(3)사용
-                                @endphp                                
-                                    @forelse($limitdata as $item)
+                                    @forelse($data as $item)
                                         <article class="box excerpt">
                                             <a href="#" class="image left"><img src="images/pic04.jpg" alt="" /></a>
                                             <div>

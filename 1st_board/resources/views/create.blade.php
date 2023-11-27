@@ -4,7 +4,7 @@
 {{-- title로 Create 표기 --}}
 @section('main')
 {{-- layout.blade.php의 상속을 받지 않고 독자적으로 구성 --}}
-<main>
+<main>    
 	<form class="form-post" method="POST" action="{{route('board.store')}}" style="width: 1000px;">
 		{{-- 1. 미들웨어로 권한 체크
 			 2. 보드컨트롤러 store()메소드 호출하여 유저 입력 값 중 only()메소드 사용하여 b_title, b_content
@@ -17,7 +17,7 @@
 			트리거하는 공격방어 목적으로 @csrf 사용 --}}           
         <div class="show-body">
             <div>
-                <p class="form-p">제목과 내용을 작성해주세요.</p>
+                <p class="form-p">제목과 내용을 작성해주세요. @include('layout.errorMsg')</p>
                 <input type="text" name="d_title" id="d_title" autocomplete="off" class="show-input">
                 <textarea class="form-control" name="d_content" id="d_content" cols="10" rows="4"></textarea>
                 <div class="form-button">

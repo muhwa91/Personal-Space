@@ -18,9 +18,9 @@ class BoardController extends Controller
     public function index()
     {
         // 게시글 획득
-        $result = Board::get(); // DB에 있는 데이터 저장
+        // $result = Board::orderBy('created_at', 'desc')->get()->take(3); // 게시글 데이터 최신글로 3개 가져오기
+        $result = Board::orderBy('created_at', 'desc')->get()->take(3);
         return view('main')->with('data', $result); // list 페이지에서 DB에서 받아온 데이터를 저장한 $result를 data에 저장하여 사용
-
     }
 
     /**
@@ -41,12 +41,14 @@ class BoardController extends Controller
      */
     public function store(Request $request)
     {   
+        Log::debug("board.store Start");
         $request->validate([ // 공백입력 막기위해 유효성 검사 실시
             'd_title' => 'required',
             'd_content' => 'required',
         ]);
         $data = $request->only('d_title', 'd_content');
         $result = Board::create($data);
+        Log::debug("board.store End");
         return redirect()->route('board.index');
     }
 
