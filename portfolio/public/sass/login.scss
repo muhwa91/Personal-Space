@@ -1,0 +1,220 @@
+
+// Load icon font(s)
+@import url(http://weloveiconfonts.com/api/?family=entypo|zocial);
+
+  //* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+  //* zocial */
+[class*="zocial-"]:before {
+  font-family: 'zocial', sans-serif;
+}
+
+// Variables
+
+$color-text: #606469;
+$color-bg: #1f2226;
+$color-link: white;
+$color-link-hover: darken(#fff, 50%);
+
+$color-icon-bg: #363b41;
+$color-icon: #606468;
+
+$color-input-text: white;
+$color-input-bg: #3b4148;
+$color-placeholder: lighten($color-icon,10%);
+
+$color-button: #EA4D88;
+$color-button-hover: darken($color-button,5%); 
+
+$border-radius: 4px;
+
+// Mixins
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin center-element {
+  /* Center elements */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+// Placeholders
+
+%clearfix { @include clearfix; }
+%center-element { @include center-element; }
+%outline { &:focus { outline: lime solid thin; } }
+%transitions { transition: all .5s ease; }
+
+// Fixes for IE... =/
+
+
+
+// Base Styles
+
+*, 
+*:before, 
+*:after { 
+  box-sizing: border-box;
+}
+
+body { 
+  font-size: 1em;
+  line-height: 1.4;
+  background: $color-bg;
+}
+
+// Layouts
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  @extend %clearfix;
+}
+
+.login-wrapper {
+  width: 320px;
+  height: 320px;
+  background: {
+    image: url('https://db.tt/ShQdt1wH');
+    position: center center;
+    size: cover;
+  }
+  
+  @extend %center-element;
+  @extend %transitions;
+  
+  @media (min-width: 484px) {
+    width: 484px;
+    height: 484px;
+  }
+}
+
+.login-form {
+  z-index: 1;
+  width: 100%;
+  max-width: 380px;
+  width: 100%;
+  //min-width: 320px; 
+  padding: 0 20px;
+  @extend %center-element;
+  
+  .password { margin-top: 20px; }
+  
+  .username,
+  .password { 
+    @extend %clearfix; 
+    
+    label { 
+      float: left; 
+      display: block;
+      width: 15%;
+      height: 55px;
+      text-align: center;
+      
+      span {
+        line-height: 55px;
+        vertical-align: middle;
+      }
+    }
+    
+    input {
+      float: right;
+      display: block;
+      width: 85%;
+      height: 55px;
+      padding: 15px 20px;
+    }
+  }
+
+  .btn {
+    width: 100%;
+    height: 55px;
+    margin: 26px 0 20px;
+  }
+  
+  p span { padding-left: 5px; }
+  
+  @media (min-width: 380px) { padding: 0; }
+}
+
+// Stylying for Login Form
+
+.login-form {
+  .username,
+  .password {
+    
+    label {
+      border-top-left-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
+      background-color: $color-icon-bg;
+      background-color: rgba($color-icon-bg,.8); 
+      
+      span {
+        font-size: 28px;
+        color: $color-icon;
+      }
+    }
+    
+    input {
+      border: none;
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+      background-color: $color-input-bg;
+      background-color: rgba($color-input-bg,.8);
+      color: white;
+      
+      &::placeholder { color: $color-placeholder; }
+      @extend %outline;
+    }
+  }
+  
+  .btn {
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: $border-radius;
+    background-color: $color-button;
+    background-color: rgba($color-button,.8);
+    text-shadow: 0 1px 2px rgba(0,0,0,.3);
+    color: white;
+    
+    &:hover { 
+      background-color: $color-button-hover;
+      background-color: rgba($color-button-hover,.9);
+    }
+    
+    @extend %outline;
+    @extend %transitions;
+  }
+  
+  a { 
+    font-weight: 300;
+    text-decoration: none;
+    color: $color-link; 
+
+    &:hover { color: $color-link-hover; }
+    
+    @extend %outline;
+    @extend %transitions;
+  }
+  
+  p {
+    margin: 0;
+    text-align: center;
+    color: $color-text; 
+  }
+}
