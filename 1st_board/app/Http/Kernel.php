@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'UserInfoValidation' => \App\Http\Middleware\UserInfoValidation::class,
+        // 특정 라우트에 대한 미들웨어를 추가함으로써 유효성 체크하는 발리데이션 라우트 미들웨어 등록
     ];
 }
