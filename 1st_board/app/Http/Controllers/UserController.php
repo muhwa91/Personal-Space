@@ -48,6 +48,9 @@ class UserController extends Controller
     }
 
     public function register_get() {
+        if(Auth::check()) {
+            return redirect()->route('board.index');
+        } 
         return view('register');
     }
 

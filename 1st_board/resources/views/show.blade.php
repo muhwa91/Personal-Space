@@ -15,8 +15,8 @@
 		<div class="show-body">
             <div>
                 <p>번호 : {{$data->d_id}} | 조회 수 : {{$data->d_hits}} | 작성일 : {{$data->created_at}} | 수정일 : {{$data->updated_at}}</p>   
-                <input type="text" name="d_title" id="d_title" value="{{$data->d_title}}" class="show-input">
-                <textarea rows="4" cols="20" name="d_content" id="d_content">{{$data->d_content}}</textarea>
+                <input type="text" name="d_title" id="d_title" value="{{$data->d_title}}" class="show-input" readonly>
+                <textarea rows="4" cols="20" name="d_content" id="d_content" readonly>{{$data->d_content}}</textarea>
                 <div class="form-button">
                     <a href="{{route('board.destroy', ['board' => $data->d_id])}}" class="btn">
                         <button type="submit">삭제</button>

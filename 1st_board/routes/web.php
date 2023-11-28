@@ -16,10 +16,10 @@ use App\Http\Controllers\BoardController;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return redirect()->route('main.get');
 });
 
-Route::get('/board.index', [UserController::class, 'main_get'])->name('main.get');
+Route::get('/board/index', [UserController::class, 'main_get'])->name('main.get');
 // 홈으로 이동
 Route::get('/user/login', [UserController::class, 'login_get'])->name('user.login.get'); 
 // 로그인 화면 이동
