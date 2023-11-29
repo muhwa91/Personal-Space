@@ -41,9 +41,9 @@
     <div class="community-warp spad">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <h3 class="community-top-title">All Members (344)</h3>
-                </div>
+                <div class="col-md-6">                    
+                    <h3 class="community-top-title">All Members (344)</h3> 
+                </div>                
                 <div class="col-md-6 text-lg-right">
                     <form class="community-filter">
                         <label for="fdf5">Show</label>
@@ -57,15 +57,41 @@
             <ul class="community-post-list">
                 <li>
                     <div class="community-post">
-                        <div class="author-avator set-bg" data-setbg="img/authors/1.jpg"></div>
-                        <div class="post-content">
-                            <h5>James Smith<span>posted an update</span></h5>
-                            <div class="post-date">June 21, 2018</div>
-                            <p>Lorem ipsum dolor sit amet, cdictum nisl onsectetur adipisc ing ipsum dolor sit ame. Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit ame.Donec venenatis at eros sit amet aliquam. Donec vel orci efficitur, dictum nisl vitae, scelerisque nibh. Curabitur eget ipsum pulvinar nunc gravida interdum. </p>
-                        </div>
+                        <form method="POST" action="{{ route('communityboard.store')}}">
+                            @csrf
+                            <input type="hidden" name="user_id" value="{{ Session::get('id') }}">
+                            <textarea id="community_content" name="community_content" class="feedback-input" spellcheck="false" autocomplete="off" placeholder="Comment"></textarea>
+                            <input type="submit" value="SUBMIT"/>
+                        </form>
                     </div>
                 </li>
-                <li>
+                @forelse ($data as $item)
+                <form method="POST" action="{{route('communityboard.destroy', ['communityboard' => $item->community_id])}}">
+                    @csrf
+                    @method('DELETE')
+                    <li>
+                        <div class="community-post">
+                            <div class="author-avator set-bg"></div>
+                            <div class="post-content">
+                                <h5>{{$item->name}}</h5>
+                                <div class="post-date">{{$item->created_at}}</div>
+                                <p>{{$item->community_content}}</p>
+                            </div>
+                            <div class="user-panel-community-container">
+                                <div class="user-panel-community">                         
+                                    <button>delete</button>              
+                                </div>
+                                <div class="user-panel-community">  
+                                    <button type="button">edit</button> 
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </form>
+                @empty
+                    
+                @endforelse
+                {{-- <li>
                     <div class="community-post">
                         <div class="author-avator set-bg" data-setbg="img/authors/8.jpg"></div>
                         <div class="post-content">
@@ -77,8 +103,8 @@
                             </div>
                         </div>
                     </div>
-                </li>
-                <li>
+                </li> --}}
+                {{-- <li>
                     <div class="community-post">
                         <div class="author-avator set-bg" data-setbg="img/authors/5.jpg"></div>
                         <div class="post-content">
@@ -87,8 +113,8 @@
                             <p>Lorem ipsum dolor sit amet, cdictum nisl onsectetur adipisc ing ipsum dolor sit ame. Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit ame.Donec venenatis at eros sit amet aliquam. Donec vel orci efficitur, dictum nisl vitae, scelerisque nibh. Curabitur eget ipsum pulvinar nunc gravida interdum. </p>
                         </div>
                     </div>
-                </li>
-                <li>
+                </li> --}}
+                {{-- <li>
                     <div class="community-post">
                         <div class="author-avator set-bg" data-setbg="img/authors/1.jpg"></div>
                         <div class="post-content">
@@ -97,8 +123,8 @@
                             <p>Lorem ipsum dolor sit amet, cdictum nisl onsectetur adipisc ing ipsum dolor sit ame. Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit ame.Donec venenatis at eros sit amet aliquam. Donec vel orci efficitur, dictum nisl vitae, scelerisque nibh. Curabitur eget ipsum pulvinar nunc gravida interdum. </p>
                         </div>
                     </div>
-                </li>
-                <li>
+                </li> --}}
+                {{-- <li>
                     <div class="community-post">
                         <div class="author-avator set-bg" data-setbg="img/authors/4.jpg"></div>
                         <div class="post-content">
@@ -107,8 +133,8 @@
                             <p>Lorem ipsum dolor sit amet, cdictum nisl onsectetur adipisc ing ipsum dolor sit ame. Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit ame.Donec venenatis at eros sit amet aliquam. Donec vel orci efficitur, dictum nisl vitae, scelerisque nibh. Curabitur eget ipsum pulvinar nunc gravida interdum. </p>
                         </div>
                     </div>
-                </li>
-                <li>
+                </li> --}}
+                {{-- <li>
                     <div class="community-post">
                         <div class="author-avator set-bg" data-setbg="img/authors/6.jpg"></div>
                         <div class="post-content">
@@ -117,8 +143,8 @@
                             <p>Lorem ipsum dolor sit amet, cdictum nisl onsectetur adipisc ing ipsum dolor sit ame. Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit ame.Donec venenatis at eros sit amet aliquam. Donec vel orci efficitur, dictum nisl vitae, scelerisque nibh. Curabitur eget ipsum pulvinar nunc gravida interdum. </p>
                         </div>
                     </div>
-                </li>
-                <li>
+                </li> --}}
+                {{-- <li>
                     <div class="community-post">
                         <div class="author-avator set-bg" data-setbg="img/authors/7.jpg"></div>
                         <div class="post-content">
@@ -127,13 +153,13 @@
                             <p>Lorem ipsum dolor sit amet, cdictum nisl onsectetur adipisc ing ipsum dolor sit ame. Lorem ipsum dolor sit amet, consectetur adipisc ing ipsum dolor sit ame.Donec venenatis at eros sit amet aliquam. Donec vel orci efficitur, dictum nisl vitae, scelerisque nibh. Curabitur eget ipsum pulvinar nunc gravida interdum. </p>
                         </div>
                     </div>
-                </li>
-            </ul>
+                </li> --}}
+            </ul>                         
             <div class="site-pagination sp-style-2">
                 <span class="active">01.</span>
                 <a href="#">02.</a>
-                <a href="#">03.</a>
-            </div>
+                <a href="#">03.</a>                                               
+            </div>                                            
         </div>
     </div>
 </section>

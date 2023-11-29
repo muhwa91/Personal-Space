@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use App\Models\User;
+use App\Models\CommunityBoard;
 
 class UserController extends Controller
 {
@@ -22,8 +25,21 @@ class UserController extends Controller
     }
 
     // Forums 화면 이동
-    public function forums_get() {        
-        return view('community');
+    public function forums_get() {  
+            
+        // $result = CommunityBoard::orderBy('community_id', 'desc')->get()->take(3);
+        // foreach ($result as $value) {
+        //     $aaa = User::where('id', $value['user_id'])->first();
+        //     $value['name'] = $aaa->name;
+        // }
+
+        $result = CommunityBoard::join('user as us', 'us.id', '=', 'community_board.user_id')
+                ->select('community_board.*', 'us.name')
+                ->orderByDesc('community_id')
+                ->limit(3)
+                ->get();
+        Log::debug(" ***** 인덱스1111 *****".$result);  
+        return view('community')->with('data', $result);
     }
 
     // Contact 화면 이동
@@ -33,9 +49,9 @@ class UserController extends Controller
 
     // 로그인 화면 이동
     public function login_get() {
-        // if(Auth::check()) {
-        //     return redirect()->route('index');
-        // }    권한체크 하지 않았기 때문에 임시 비활성화
+        if(Auth::check()) {
+            return redirect()->route('index');
+        }
         return view('login');
     }
 

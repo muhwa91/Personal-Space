@@ -50,7 +50,7 @@ class Handler extends ExceptionHandler
 
         $code = $exception->getMessage();
 
-        if(!in_array($code, $errCode)) {
+        if(!in_array($code, $errCode)) {            
             $code = 'E99';
         }
 
