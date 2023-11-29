@@ -38,7 +38,6 @@ class UserController extends Controller
                 ->orderByDesc('community_id')
                 ->limit(3)
                 ->get();
-        Log::debug(" ***** 인덱스1111 *****".$result);  
         return view('community')->with('data', $result);
     }
 

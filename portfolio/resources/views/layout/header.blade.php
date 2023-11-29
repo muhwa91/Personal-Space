@@ -8,7 +8,7 @@
     <div class="container">
         <!-- logo -->
         <a class="site-logo" href="index.html">
-            <img src="img/logo.png" alt="">
+            <img src="/img/logo.png" alt="">
         </a>
         <div class="user-panel">
             @guest

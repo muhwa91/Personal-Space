@@ -32,9 +32,10 @@ class CommunityBoardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
+        Log::debug(" ***** 에러확인용 *****");
         $result = CommunityBoard::find($id);
-        return view('community/edit')->with('data', $result);
+        return view('edit')->with('data', $result);
     }
 
     /**
@@ -50,7 +51,8 @@ class CommunityBoardController extends Controller
         $result = CommunityBoard::find($id);
         $result->community_content = $request->community_content;
         $result->save();
-        return redirect()->route('forums.link.get', ['communityboard' => $id]);
+        // return redirect()->route('forums.link.get', ['communityboard' => $id]);
+        return redirect()->route('forums.link.get');
     }
 
     /**
@@ -60,7 +62,7 @@ class CommunityBoardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    {    
         Log::debug("***** 삭제 처리 시작 *****");
         try {
             DB::beginTransaction();
