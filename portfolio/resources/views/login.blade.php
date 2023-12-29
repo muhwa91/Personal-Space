@@ -11,6 +11,7 @@
     <div class="container">
         <div class="login-wrapper">
         <form class="login-form" method="POST" action="{{route('login.post')}}">
+            @csrf
             <!-- username --> 
             <div class="username">
             <label><span class="entypo-user"></span></label>

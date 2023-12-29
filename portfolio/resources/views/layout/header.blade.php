@@ -8,10 +8,15 @@
     <div class="container">
         <!-- logo -->
         <a class="site-logo" href="index.html">
-            <img src="img/logo.png" alt="">
+            <img src="/img/logo.png" alt="">
         </a>
         <div class="user-panel">
-            <a href="{{ route('login.get') }}">Login</a>  /  <a href="#">Register</a>
+            @guest
+            <a href="{{ route('login.get') }}">Login</a>  /  <a href="{{ route('register.get') }}">Register</a>                
+            @endguest
+            @auth
+            <a href="{{ route('logout.get') }}">Logout</a>
+            @endauth
         </div>
         <!-- responsive -->
         <div class="nav-switch">
