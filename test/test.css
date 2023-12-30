@@ -47,7 +47,7 @@ body {
 /* 찜하기 버튼 끝 */
 
 /* 검색 바 시작 */
-.search-container {
+.desktop-search-bar {
     width: 270px;
     margin: 0 auto;
     display: flex;
@@ -67,11 +67,16 @@ body {
     outline: none;
 }
 
+.header-search-btn {
+    border: none;
+    cursor: pointer;
+}
+
 .search-icon {
     width: 40px;
     height: 40px;
     margin: 0 auto;
     margin-left: -40px;
 }
-/* 검색바 끝 */
-/* 검색바 수정 중 */
+/* 검색 바 끝 */
+/* 검색 바 수정 중 */
