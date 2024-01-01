@@ -80,3 +80,32 @@ body {
 }
 /* 검색 바 끝 */
 /* 검색 바 수정 중 */
+
+/* 책 슬라이드 시작 */
+/* .banner-container {
+    width: 100%;
+    max-width: 1300px; 
+    margin: auto;
+    overflow: hidden;
+}
+
+.banner {
+    display: flex;
+    animation: bannerAnimation 120s linear infinite;
+}
+
+.banner img {
+    width: 100px; 
+    height: auto; 
+    margin-right: 10px; 
+}
+
+@keyframes bannerAnimation {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-700%); 
+    }
+} */
+/* 책 슬라이드 끝 */
