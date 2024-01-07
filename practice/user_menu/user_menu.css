@@ -1,0 +1,30 @@
+#container {
+    position: relative;
+  }
+  
+  #user-menu {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  #user-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #user-menu li {
+    margin-bottom: 10px;
+  }
+  
+  #user-icon {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+  }
