@@ -1,0 +1,12 @@
+1. composer require "algolia/scout-extended:^3.0"
+2. php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider"
+3. app.php 내 provider 
+Algolia\ScoutExtended\ScoutExtendedServiceProvider::class,
+4. php.ini 내
+curl.cainfo = C:\Program Files\php-8.2.11/lib/cacert.pem
+lib 폴더 내 cacert.pem 위치
+5. env. 내
+ALGOLIA_APP_ID=key
+ALGOLIA_SECRET=key
+ALGOLIA_SEARCH_ONLY_KEY=key
+6. https://www.algolia.com/doc/framework-integration/laravel/getting-started 참고
